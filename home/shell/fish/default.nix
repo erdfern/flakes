@@ -1,10 +1,11 @@
 { self, config, nixosConfig, pkgs, lib, ... }:
 let
-  init_card_symlinks = pkgs.writeShellScriptBin "init_card_symlinks" ''
+  isKor = nixosConfig.networking.hostName == "kor";
+  symlink_gpus = lib.mkIf isKor pkgs.writeShellScriptBin "init_card_symlinks" ''
     ln -sf /dev/dri/by-path/pci-0000:10:00.0-card ~/.config/hypr/amdi
     ln -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr/nv2700s
   '';
-  isKor = nixosConfig.networking.hostName == "kor";
+  tmp = if isKor then "${symlink_gpus}/bin/symlink_gpus" else ""; # don't know how to do it with mkIf
 in
 {
   programs.fish = {
@@ -19,7 +20,7 @@ in
 
     loginShellInit = lib.mkIf config.wayland.windowManager.hyprland.enable ''
       set TTY1 (tty)
-      ${ (lib.mkIf isKor init_card_symlinks/bin/init_card_symlinks) }
+      ${ tmp }
       # [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
       [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
     '';
