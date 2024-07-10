@@ -36,7 +36,7 @@ in
         "temperature"
         "network"
         "battery"
-        # "custom/powermenu"
+        "custom/powermenu"
         "tray"
       ];
       idle_inhibitor = {
@@ -72,12 +72,12 @@ in
         "format-icons" = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
         # "actions" = { "on-click-right" = "mode"; };
       };
-      # "hyprland/workspaces" = {
-      #   "format" = "{name}";
-      #   "on-click" = "activate";
-      #   # "on-scroll-up" = "hyprctl dispatch workspace e+1";
-      #   # "on-scroll-down" = "hyprctl dispatch workspace e-1";
-      # };
+      "hyprland/workspaces" = {
+        "format" = "{name}";
+        "on-click" = "activate";
+        "on-scroll-up" = "hyprctl dispatch workspace e+1";
+        "on-scroll-down" = "hyprctl dispatch workspace e-1";
+      };
       "backlight" = {
         "device" = "intel_backlight";
         "on-scroll-up" = "light -A 5";
@@ -168,7 +168,7 @@ in
       };
       "temperature" = {
         "critical-threshold" = 64;
-        thermal-zone = 3;
+        thermal-zone = if isT14 then 3 else 1;
         tooltip = false;
         format = " {temperatureC}󰔄";
         format_critical = " {temperatureC}󰔄";
