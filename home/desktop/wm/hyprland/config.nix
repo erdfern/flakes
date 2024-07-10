@@ -80,6 +80,7 @@ in
       };
 
       misc = {
+        close_special_on_empty = true;
         vrr = 1; # 0-off 1-on 2-fullscreen only
         focus_on_activate = true;
         disable_splash_rendering = true;
@@ -95,6 +96,7 @@ in
         follow_mouse = 2; # click on window to focus
         sensitivity = 0;
         float_switch_override_focus = 1;
+        special_fallthrough = false;
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
@@ -146,6 +148,14 @@ in
           "$mod SHIFT, O, exec, killall -SIGUSR1 .waybar-wrapped"
           "$mod, bracketleft, exec, grimblast --notify --cursor copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
           "$mod, bracketright, exec, grimblast --notify --cursor copy area"
+
+
+          # minimize using special workspace
+          "$mod SHIFT, S, togglespecialworkspace, magic"
+          "$mod SHIFT, S, movetoworkspace, +0"
+          "$mod SHIFT, S, togglespecialworkspace, magic"
+          "$mod SHIFT, S, movetoworkspace, special:magic"
+          "$mod SHIFT, S, togglespecialworkspace, magic"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
