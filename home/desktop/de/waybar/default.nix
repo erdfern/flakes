@@ -1,6 +1,8 @@
 { pkgs, lib, config, ... }:
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
+  isT14 = config.networking.hostName == "kor-t14";
+  thing = if builtins.trace "it really be ${isT14}" isT14 then "yuh" else "nah";
 in
 {
   # TODO: the applet services don't survive `exit`
@@ -22,6 +24,7 @@ in
         "wireplumber"
         # (lib.mkIf (config.networking.hostName == "kor-t14") "backlight")
         (lib.mkIf (true) "backlight")
+        thing
         # "backlight"
         # "hyprland/workspaces"
         # "mpd"
