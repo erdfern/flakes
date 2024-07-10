@@ -37,6 +37,7 @@
           ".steam"
           # ".pvpn-cli"
           ".android"
+          ".gradle"
         ];
         files = [ ".nvidia-settings-rc" ];
       };
