@@ -30,7 +30,6 @@ let
         # };
       };
 
-
       config = mkIf cfg.enable {
         home.packages = [ cfg.package cfg.rustAnalyzer ];
       };

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
 in
@@ -19,7 +19,9 @@ in
       modules-left = [
         "custom/launcher"
         "idle_inhibitor"
-        # "wireplumber"
+        "wireplumber"
+        # (lib.mkIf (config.networking.hostName == "kor-t14") "backlight")
+        (lib.mkIf (true) "backlight")
         # "backlight"
         # "hyprland/workspaces"
         # "mpd"
