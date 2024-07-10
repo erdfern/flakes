@@ -1,6 +1,7 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, nixosConfig, aaaa, ... }:
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
+  isT14 = nixosConfig.networking.hostName == "kor-t14";
 in
 {
   # TODO: the applet services don't survive `exit`
@@ -13,15 +14,14 @@ in
       enable = false; # disable it, autostart it in hyprland conf
       # target = "graphical-session.target";
     };
-    settings = [{
+    settings = builtins.trace aaaa [{
       "layer" = "top";
       "position" = "top";
       modules-left = [
         "custom/launcher"
         "idle_inhibitor"
         "wireplumber"
-        # (lib.mkIf (config.nixosConfig.networking.hostName == "kor-t14") "backlight")
-        # (lib.mkIf (builtins.trace config.haa true) "backlight")
+        (lib.mkIf isT14 "backlight")
         # "backlight"
         # "hyprland/workspaces"
         # "mpd"
