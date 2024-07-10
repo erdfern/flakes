@@ -1,9 +1,10 @@
-{ self, config, pkgs, ... }:
+{ self, config, nixosConfig, pkgs, lib, ... }:
 let
   init_card_symlinks = pkgs.writeShellScriptBin "init_card_symlinks" ''
     ln -sf /dev/dri/by-path/pci-0000:10:00.0-card ~/.config/hypr/amdi
     ln -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr/nv2700s
   '';
+  isKor = nixosConfig.networking.hostName == "kor";
 in
 {
   programs.fish = {
@@ -16,14 +17,12 @@ in
       { name = "plugin-git"; src = plugin-git.src; } # git aliases
     ];
 
-    loginShellInit =
-      if config.wayland.windowManager.hyprland.enable then ''
-        set TTY1 (tty)
-        ${init_card_symlinks}/bin/init_card_symlinks
-        # [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
-        [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
-      ''
-      else '''';
+    loginShellInit = lib.mkIf config.wayland.windowManager.hyprland.enable ''
+      set TTY1 (tty)
+      ${ (lib.mkIf isKor init_card_symlinks/bin/init_card_symlinks) }
+      # [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
+      [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
+    '';
 
     interactiveShellInit = ''
       set fish_greeting ""
