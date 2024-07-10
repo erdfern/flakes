@@ -22,7 +22,7 @@
           # NOTE: These overlays apply to the Nix shell only. See `modules/nix.nix` for system overlays.
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays = builtins.trace system [
+            overlays = [
               #inputs.foo.overlays.default
             ];
           };

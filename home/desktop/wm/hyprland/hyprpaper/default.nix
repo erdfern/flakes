@@ -11,7 +11,7 @@ let
 in
 {
   services.hypridle = {
-    enable = builtins.trace "hmm haa" true;
+    enable = true;
     settings = {
       ipc = "on";
       splash = false;

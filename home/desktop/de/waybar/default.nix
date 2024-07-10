@@ -1,4 +1,4 @@
-{ pkgs, lib, config, nixosConfig, aaaa, ... }:
+{ pkgs, lib,nixosConfig, ... }:
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
   isT14 = nixosConfig.networking.hostName == "kor-t14";
@@ -14,7 +14,7 @@ in
       enable = false; # disable it, autostart it in hyprland conf
       # target = "graphical-session.target";
     };
-    settings = builtins.trace aaaa [{
+    settings = [{
       "layer" = "top";
       "position" = "top";
       modules-left = [
