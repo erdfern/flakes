@@ -1,6 +1,5 @@
 { pkgs, user, ... }:
 {
-
   # Global theme stuff
   catppuccin.enable = true;
   catppuccin.flavor = "macchiato";
@@ -8,7 +7,6 @@
   programs = {
     dconf.enable = true;
     light.enable = true;
-    # nm-applet = { enable = true; indicator = true; };
   };
 
   hardware.bluetooth.enable = true;
