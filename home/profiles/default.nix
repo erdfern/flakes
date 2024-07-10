@@ -19,6 +19,8 @@ let
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
+  aaa = "bbbb";
+  specialLittleArgs = { inherit aaa; };
 in
 {
   imports = [
@@ -31,12 +33,14 @@ in
       "${user}@kor" = homeManagerConfiguration {
         modules = homeImports."${user}@kor";
         # extraSpecialArgs = { helix-flake = inputs.helix; };
-        inherit pkgs;
+        extraSpecialArgs = specialLittleArgs;
+        inherit pkgs config;
       };
       "${user}@kor-t14" = homeManagerConfiguration {
         modules = homeImports."${user}@kor-t14";
         # extraSpecialArgs = { helix-flake = inputs.helix; };
-        inherit pkgs;
+        extraSpecialArgs = specialLittleArgs;
+        inherit pkgs config;
       };
     });
   };

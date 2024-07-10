@@ -20,8 +20,8 @@ in
         "custom/launcher"
         "idle_inhibitor"
         "wireplumber"
-        (lib.mkIf (config.extraSpecialArgs.nixosConfig.networking.hostName == "kor-t14") "backlight")
-        # (lib.mkIf (true) "backlight")
+        # (lib.mkIf (config.nixosConfig.networking.hostName == "kor-t14") "backlight")
+        # (lib.mkIf (builtins.trace config.haa true) "backlight")
         # "backlight"
         # "hyprland/workspaces"
         # "mpd"
