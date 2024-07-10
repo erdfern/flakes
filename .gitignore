@@ -1,0 +1,7 @@
+result/
+nixos.*
+nixpkgs/
+/.nixd.nix 
+just-flake.just
+.pre-commit-config.yaml
+.direnv
