@@ -12,7 +12,7 @@
     };
     bootspec.enable = true;
     loader = {
-      timeout = 3; # if 0, press any key to show OS selection
+      timeout = 0; # if 0, press any key to show OS selection
       systemd-boot = {
         enable = true;
         consoleMode = "auto";
@@ -25,10 +25,10 @@
     kernelParams = [
       "quiet"
       "splash"
-      # "loglevel=3"
-      # "rd.systemd.show_status=false"
-      # "rd.udev.log_level=3"
-      # "udev.log_priority=3"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
     ];
   };
 }
