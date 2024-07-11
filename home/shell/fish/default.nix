@@ -1,10 +1,10 @@
 { self, config, nixosConfig, pkgs, lib, ... }:
 let
   isKor = nixosConfig.networking.hostName == "kor";
-  symlink_gpus = lib.mkIf isKor pkgs.writeShellScriptBin "init_card_symlinks" ''
+  symlink_gpus = (lib.mkIf isKor pkgs.writeShellScriptBin "init_card_symlinks" ''
     ln -sf /dev/dri/by-path/pci-0000:10:00.0-card ~/.config/hypr/amdi
     ln -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr/nv2700s
-  '';
+  '');
   tmp = if isKor then "${symlink_gpus}/bin/symlink_gpus" else ""; # don't know how to do it with mkIf
 in
 {
