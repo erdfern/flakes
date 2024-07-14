@@ -6,7 +6,7 @@
       lldb
       # ntfs3g
       # exercism
-      # surrealdb
+      surrealdb
     ];
   };
 
