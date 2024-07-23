@@ -1,9 +1,8 @@
 { pkgs, ... }:
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
-  launch_waybar = pkgs.writeShellScriptBin "launch_waybar" ''
-    killall .waybar-wrapped
-    ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
+  toggle_waybar = pkgs.writeShellScriptBin "toggle_waybar" ''
+    killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   '';
   # hyprlands dpms toggle doesn't work as expected, idk. this does tho
   toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
@@ -29,7 +28,7 @@ in
       "$mod" = mod;
 
       exec-once = [
-        "${launch_waybar}/bin/launch_waybar &"
+        "${toggle_waybar}/bin/launch_waybar &"
         "mako &"
         "nm-applet &"
       ];
@@ -144,7 +143,7 @@ in
           "$mod, Return, exec, $TERMINAL"
           "$mod SHIFT, Return, exec, $TERMINAL --class='termfloat'"
           # "$mod SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
-          "$mod SHIFT, O, exec, ${launch_waybar}/bin/launch_waybar"
+          "$mod SHIFT, O, exec, ${toggle_waybar}/bin/launch_waybar"
           "$mod, bracketleft, exec, grimblast --notify --cursor copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
           "$mod, bracketright, exec, grimblast --notify --cursor copy area"
 
