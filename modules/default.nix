@@ -22,7 +22,7 @@ in
           ./nix.nix
           ./security_key.nix
           # lix-module.nixosModules.default
-          inputs.lix-module.nixosModules.default
+          # inputs.lix-module.nixosModules.default
           inputs.home-manager.nixosModules.home-manager # Same as below?
           # inputs.home-manager.nixosModule
           {
