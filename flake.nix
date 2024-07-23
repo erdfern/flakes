@@ -24,7 +24,7 @@
             inherit system;
             overlays = [
               #inputs.foo.overlays.default
-            ];
+            ] ++ inputs.lix-module.overlays.default;
           };
           devShells = {
             default = pkgs.mkShell {
