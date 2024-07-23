@@ -5,7 +5,6 @@ let
     killall .waybar-wrapped
     ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   '';
-
   # hyprlands dpms toggle doesn't work as expected, idk. this does tho
   toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
     if [ "$(hyprctl monitors all -j | ${pkgs.jq}/bin/jq 'map(.dpmsStatus) | any')" = "true" ]; then
@@ -145,7 +144,7 @@ in
           "$mod, Return, exec, $TERMINAL"
           "$mod SHIFT, Return, exec, $TERMINAL --class='termfloat'"
           # "$mod SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
-          "$mod SHIFT, O, exec, killall -SIGUSR1 .waybar-wrapped || ${launch_waybar}"
+          "$mod SHIFT, O, exec, ${launch_waybar}/bin/launch_waybar"
           "$mod, bracketleft, exec, grimblast --notify --cursor copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
           "$mod, bracketright, exec, grimblast --notify --cursor copy area"
 

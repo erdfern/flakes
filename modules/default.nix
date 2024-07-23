@@ -4,8 +4,8 @@ let
   module_args._module.args = {
     inherit inputs self;
   };
-  aaaa = "bbbb";
-  sillyLittleArgs = { inherit aaaa; };
+  # aaaa = "bbbb"
+  # sillyLittleArgs = { inherit aaaa; };
 in
 {
   imports = [
@@ -21,13 +21,15 @@ in
           ./systemdboot.nix
           ./nix.nix
           ./security_key.nix
+          # lix-module.nixosModules.default
+          inputs.lix-module.nixosModules.default
           inputs.home-manager.nixosModules.home-manager # Same as below?
           # inputs.home-manager.nixosModule
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = sillyLittleArgs;
+              # extraSpecialArgs = sillyLittleArgs;
             };
           }
           inputs.catppuccin.nixosModules.catppuccin
