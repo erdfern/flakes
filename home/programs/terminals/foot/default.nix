@@ -7,7 +7,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "Fira Code:size=14";
+        font = "jetbrains mono nerd font:size=14";
         dpi-aware = "yes";
       };
       mouse = {
