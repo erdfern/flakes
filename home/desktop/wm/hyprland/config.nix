@@ -28,7 +28,7 @@ in
       "$mod" = mod;
 
       exec-once = [
-        "${toggle_waybar}/bin/launch_waybar &"
+        "${toggle_waybar}/bin/toggle_waybar &"
         "mako &"
         "nm-applet &"
       ];
@@ -143,7 +143,7 @@ in
           "$mod, Return, exec, $TERMINAL"
           "$mod SHIFT, Return, exec, $TERMINAL --class='termfloat'"
           # "$mod SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
-          "$mod SHIFT, O, exec, ${toggle_waybar}/bin/launch_waybar"
+          "$mod SHIFT, O, exec, ${toggle_waybar}/bin/toggle_waybar"
           "$mod, bracketleft, exec, grimblast --notify --cursor copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
           "$mod, bracketright, exec, grimblast --notify --cursor copy area"
 
