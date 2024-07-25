@@ -130,4 +130,4 @@ formatter = { command = 'prettier', args = ["--parser", "css"] }
 [[language]]
 name = "svelte"
 language-servers = [ "svelteserver", "tailwindcss-ls" ]
-formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettier', args = ["--parser", "svelte"] }
