@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = (with pkgs; [ cinnamon.nemo ]);
+  home.packages = (with pkgs; [ nemo ]);
 }
