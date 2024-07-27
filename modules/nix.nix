@@ -24,7 +24,7 @@
   };
   nixpkgs = {
     config = {
-      allowBroken = true;
+      # allowBroken = true;
       allowUnsupportedSystem = true;
       allowUnfree = true;
       permittedInsecurePackages = [ ];
