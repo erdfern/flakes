@@ -7,6 +7,7 @@
       vscodevim.vim
       yzhang.markdown-all-in-one
       ms-python.python
+      ms-toolsai.jupyter
     ];
   };
 }
