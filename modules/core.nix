@@ -92,6 +92,7 @@
     shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
       # cacert # bundle of public Certificate Authorities. Probably installed by default???
+      git
       gnumake
       just
       wget
