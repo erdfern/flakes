@@ -1,4 +1,6 @@
+{pkgs, ...}:
 {
+  home.packages = [pkgs.haskellPackages.git-annex];
   programs = {
     git-cliff.enable = true;
     git = {
