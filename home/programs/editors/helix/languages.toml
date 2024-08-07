@@ -13,18 +13,17 @@ name = "python"
 language-servers = ["pyright", "ruff"]
 
 [language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
+typeCheckingMode = "standard" # off | basic | standard | strict
 
 [language-server.ruff]
 command = "ruff-lsp"
 
-# [language-server.ruff.config.settings]
-# args = ["--ignore", "E501"]
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
 
 [language.formatter]
 command = "black"
-# args = ["--line-length", "88", "--quiet", "-"]
-args = ["--line-length", "79", "--quiet", "-"]
+args = ["--line-length", "88", "--quiet", "-"]
 
 [[language]]
 name = "javascript"
