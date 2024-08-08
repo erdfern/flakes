@@ -2,7 +2,8 @@
 {
   programs.vscode = {
     enable = true;
-    package = builtins.trace "hihihi" pkgs.vscodium;
+    # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]);
+    package = pkgs.vscode.fhs;
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       yzhang.markdown-all-in-one
