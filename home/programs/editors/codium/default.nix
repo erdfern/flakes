@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = builtins.trace "hihihi" pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       yzhang.markdown-all-in-one
