@@ -14,6 +14,7 @@
 
         modules =
           [
+            ../lix.nix
             ./kor
             ../modules/impermanence.nix
             ../modules/desktop.nix
@@ -29,6 +30,7 @@
 
         modules =
           [
+            ../lix.nix
             ./kor-t14
             ../modules/impermanence.nix
             ../modules/desktop.nix
