@@ -1,0 +1,46 @@
+{ user, ... }:
+{
+  environment = {
+    persistence."/nix/persist" = {
+      directories = [
+        "/etc/nixos" # bind mounted from /nix/persist/etc/nixos to /etc/nixos
+        "/etc/NetworkManager/system-connections"
+        "/var/log"
+        "/var/lib"
+        "/etc/secureboot"
+      ];
+      files = [
+        "/etc/machine-id"
+        "/etc/create_ap.conf"
+      ];
+      users.${user} = {
+        directories = [
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Documents"
+          "Videos"
+          "Flakes"
+          "Kvm"
+          "Projects"
+          ".cache"
+          ".config"
+          ".local"
+          ".var" # flatpak
+          { directory = ".gnupg"; mode = "0700"; }
+          { directory = ".ssh"; mode = "0700"; }
+          ".nv"
+          # ".thunderbird"
+          # ".cabal"
+          # ".cargo"
+          ".mozilla"
+          ".steam"
+          # ".pvpn-cli"
+          ".android"
+          ".gradle"
+        ];
+        files = [ ".nvidia-settings-rc" ];
+      };
+    };
+  };
+}

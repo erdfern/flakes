@@ -1,0 +1,39 @@
+{ pkgs, inputs, self, ... }:
+{
+  nix.package = pkgs.nixVersions.git; # git for bleeding edge, latest otherwise
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix.settings = {
+    auto-optimise-store = true; # Optimise syslinks
+    builders-use-substitutes = true;
+    keep-derivations = true;
+    keep-outputs = true;
+    substituters = [
+      "https://nix-community.cachix.org"
+      # "https://hyprland.cachix.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+    trusted-users = [ "root" "@wheel" ];
+  };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 2d";
+  };
+  nixpkgs = {
+    config = {
+      # allowBroken = true;
+      allowUnsupportedSystem = true;
+      allowUnfree = true;
+      permittedInsecurePackages = [ ];
+    };
+    overlays = [ self.overlays.default ]; # ++ [ inputs.lix-module.overlays.default];
+  };
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes auto-allocate-uids
+    keep-outputs          = true
+    keep-derivations      = true
+  '';
+}
