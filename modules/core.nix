@@ -68,7 +68,8 @@
   security.doas = {
     enable = false;
     extraConfig = ''
-      permit nopass :wheel '';
+      permit nopass :wheel
+    '';
   };
 
   services = {

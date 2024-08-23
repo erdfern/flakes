@@ -1,5 +1,7 @@
 { pkgs, inputs, self, ... }:
 {
+  # To prevent "Too many open files" errors on rebuild
+  systemd.extraConfig = "DefaultLimitNOFILE=4096";
   nix.package = pkgs.nixVersions.git; # git for bleeding edge, latest otherwise
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.settings = {
