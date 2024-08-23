@@ -1,11 +1,11 @@
 { pkgs, ... }:
-let
-  pyPackages = ps: with ps; [
-    pip
-    black
-    ruff-lsp
-    python-lsp-server
-    python-lsp-ruff
+# let
+  # pyPackages = ps: with ps; [
+  #   pip
+  #   black
+  #   ruff-lsp
+  #   python-lsp-server
+  #   python-lsp-ruff
     # rope
     # pyflakes
     # mccabe
@@ -15,8 +15,8 @@ let
     # flake8
     # pylint
     # pytest
-  ];
-in
+  # ];
+# in
 {
   # home = {
   #   packages = with pkgs; [

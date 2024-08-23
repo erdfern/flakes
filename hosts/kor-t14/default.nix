@@ -17,7 +17,7 @@
 
   services = {
     xserver.videoDrivers = [ "modesetting" ];
-    flatpak.enable = true;
+    # flatpak.enable = true;
     # tlp.enable = true; # succeeded by auto-cpufreq ig
     thermald.enable = true;
     auto-cpufreq = {

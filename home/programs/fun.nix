@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ unnethack rogue toipe ];
+  # home.packages = with pkgs; [ unnethack rogue toipe ];
 }
