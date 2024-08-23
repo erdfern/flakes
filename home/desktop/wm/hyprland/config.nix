@@ -135,7 +135,8 @@ in
 
           "$mod SHIFT, Space, togglefloating"
           "$mod, G, fullscreen"
-          "$mod SHIFT, G, fakefullscreen"
+          # "$mod SHIFT, G, fakefullscreen"
+          # "$mod SHIFT, G, fullscreenstate TODO"
           "$mod, P, togglesplit"
 
           ",Super_L, exec, pkill fuzzel || ${fuzzel}"
