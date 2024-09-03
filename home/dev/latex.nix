@@ -33,6 +33,6 @@ in
   imports = [ latexModule ];
 
   programs.latex = {
-    enable = false;
+    enable = true;
   };
 }
