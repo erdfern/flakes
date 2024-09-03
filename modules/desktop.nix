@@ -50,7 +50,8 @@
     # config.common.default = "*";
     config.common.default = "gtk";
     # config.common.default = "hyprland";
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
+    # extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   systemd = {
