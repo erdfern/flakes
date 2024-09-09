@@ -26,17 +26,11 @@
           ".cache"
           ".config"
           ".local"
-          ".var" # flatpak
           { directory = ".gnupg"; mode = "0700"; }
           { directory = ".ssh"; mode = "0700"; }
           ".nv"
-          # ".thunderbird"
-          # ".cabal"
-          # ".cargo"
           ".mozilla"
           ".steam"
-          # ".pvpn-cli"
-          ".android"
           ".gradle"
         ];
         files = [ ".nvidia-settings-rc" ];
