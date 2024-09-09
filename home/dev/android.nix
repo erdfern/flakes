@@ -1,15 +1,15 @@
 { pkgs, config, ... }:
 {
-  # home.packages = with pkgs; [ android-studio ];
+  home.packages = with pkgs; [ android-studio-full android-studio-tools ];
 
   # android-sdk.enable = true;
 
   # # Optional; default path is "~/.local/share/android".
   # android-sdk.path = "${config.home.homeDirectory}/.android/sdk";
 
-  # home.sessionVariables = {
-  #   ANDROID_HOME = "${config.android-sdk.path}";
-  # };
+  home.sessionVariables = {
+    ANDROID_HOME = "~/.local/share/android";
+  };
 
   # android-sdk.packages = sdk: with sdk; [
   #   build-tools-34-0-0
