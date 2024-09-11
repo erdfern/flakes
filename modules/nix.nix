@@ -2,7 +2,7 @@
 {
   # To prevent "Too many open files" errors on rebuild
   systemd.extraConfig = "DefaultLimitNOFILE=4096";
-  nix.package = pkgs.nixVersions.git; # git for bleeding edge, latest otherwise
+  # nix.package = pkgs.nixVersions.git; # git for bleeding edge, latest otherwise | DON'T SET if using the lix module, overwrites the lix package
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.settings = {
     auto-optimise-store = true; # Optimise syslinks

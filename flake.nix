@@ -11,11 +11,11 @@
         ./home/profiles
         ./hosts
         ./modules
-        # ./lix.nix
       ] ++ [
         inputs.flake-root.flakeModule
         inputs.just-flake.flakeModule
         inputs.treefmt-nix.flakeModule
+        inputs.lix-module.nixosModules.default
       ];
       flake = { overlays.default = selfPkgs.overlay; };
       perSystem = { config, pkgs, system, ... }:
@@ -101,7 +101,7 @@
     ];
   };
   inputs = {
-    # lix-module = { url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz"; inputs.nixpkgs.follows = "nixpkgs"; };
+    lix-module = { url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     # update single input: `nix flake lock --update-input <name>`
     # update all inputs: `nix flake update`
