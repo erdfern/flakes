@@ -15,7 +15,6 @@
         inputs.flake-root.flakeModule
         inputs.just-flake.flakeModule
         inputs.treefmt-nix.flakeModule
-        inputs.lix-module.nixosModules.default
       ];
       flake = { overlays.default = selfPkgs.overlay; };
       perSystem = { config, pkgs, system, ... }:
