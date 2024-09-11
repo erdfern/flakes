@@ -25,7 +25,7 @@
     };
   };
   # programs.atop = { enable = true; atopgpu.enable = true; };
-  services.flatpak.enable = false;
+  services.flatpak.enable = true;
 
   networking.hostName = "kor";
 
