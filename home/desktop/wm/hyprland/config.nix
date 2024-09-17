@@ -45,10 +45,10 @@ in
       # debug.enable_stdout_logs = true;
 
       monitor = [
+        "Unknown-1, disable"
         "desc:LG Electronics 34GK950G ##ASNP9XrjL0zd,3440x1440@120.00Hz,auto,1"
         ",highrr,auto,auto"
         # ",preferred,auto,auto"
-        "Unknown-1, disable"
       ];
 
       xwayland = { force_zero_scaling = true; };
