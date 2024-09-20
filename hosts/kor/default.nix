@@ -1,5 +1,4 @@
 { config, pkgs, user, ... }:
-
 # let
 #   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
 #     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -31,7 +30,7 @@
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_6_10;
+    kernelPackages = pkgs.linuxPackages_6_10; # 6.11 makes hyprland super laggy? some problem with gpus i think, since there's also a "Unknown-1" monitor entry which doesn't exist. Maybe also just run the amd igpu by default, idk
     kernelParams = [ "nvidia-drm.modeset=1" ];
   };
 
@@ -84,13 +83,16 @@
     ];
   };
 
+  environment.etc.nvGpuLink.target = "/dev/dri/by-path/pci-0000:01:00.0-card";
+  environment.etc.amdIGpuLink.target = "/dev/dri/by-path/pci-0000:10:00.0-card";
+
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     # WLR_RENDERER = "vulkan";
-    # WLR_DRM_DEVICES = "$HOME/.config/hypr/amdi:$HOME/.config/hypr/nv2700s"; # iGPU first, then dedicated
-    WLR_DRM_DEVICES = "$HOME/.config/hypr/nv2700s";
+    WLR_DRM_DEVICES = ""; # iGPU first, then dedicated
+    # WLR_DRM_DEVICES = "$HOME/.config/hypr/nv2700s";
     WLR_NO_HARDWARE_CURSORS = "1";
     WLR_RENDERER_ALLOW_SOFTWARE = "1";
     #__NV_PRIME_RENDER_OFFLOAD = "1";
