@@ -83,15 +83,18 @@
     ];
   };
 
-  environment.etc.nvGpuLink.target = "/dev/dri/by-path/pci-0000:01:00.0-card";
-  environment.etc.amdIGpuLink.target = "/dev/dri/by-path/pci-0000:10:00.0-card";
+  systemd.tmpfiles.rules = [
+    "L+ /run/nvidia-gpu - - - - /dev/dri/by-path/pci-0000:01:00.0-card"
+    "L+ /run/amd-igpu - - - - /dev/dri/by-path/pci-0000:10:00.0-card"
+  ];
 
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     # WLR_RENDERER = "vulkan";
-    WLR_DRM_DEVICES = ""; # iGPU first, then dedicated
+    WLR_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu"; # iGPU first, then dedicated
+    AQ_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu"; # iGPU first, then dedicated
     # WLR_DRM_DEVICES = "$HOME/.config/hypr/nv2700s";
     WLR_NO_HARDWARE_CURSORS = "1";
     WLR_RENDERER_ALLOW_SOFTWARE = "1";
