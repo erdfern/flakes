@@ -13,7 +13,7 @@
   
   # TODO move
   programs.steam = {
-    enable = true;
+    enable = false;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     package = pkgs.steam.override {
