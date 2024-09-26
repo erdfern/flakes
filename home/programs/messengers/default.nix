@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  # home.packages = (with pkgs; [
+ home.packages = (with pkgs; [
+    signal-desktop
     # tdesktop
-    # signal-desktop
     # whatsapp-for-linux
-  # ]);
+  ]);
 }
