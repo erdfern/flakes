@@ -1,4 +1,13 @@
 [[language]]
+name = "haskell"
+roots = ["Setup.hs", "stack.yaml", "*.cabal"]
+auto-format = true
+
+[language-server.haskell-language-server] # hls config docs: https://haskell-language-server.readthedocs.io/en/latest/configuration.html#example-with-settings
+config.haskell.formattingProvider = "ormolu" # default is "ormolu"
+# config.haskell.checkParents = "NeverCheck" # default is "OnSave"
+
+[[language]]
 name = "nix"
 formatter = { command = "nixpkgs-fmt" }
 
