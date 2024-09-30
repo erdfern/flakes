@@ -1,13 +1,14 @@
 { ... }:
 {
   programs.chromium = {
-    enable = false;
+    enable = true;
+    commandLineArgs = [ "--enable-features=UseOzonePlatform" "--ozone-platform=wayland" ];
     extensions =
       [
         # catppuccin macchiato theme
         { id = "cmpdlhmnmjhihmcfnigoememnffkimlk"; }
         # ublockOrigin
-        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
         # surfingkeys
         { id = "gfbliohnnapiefjpjlpjnehglfpaknnc"; }
         {
