@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.vscode = {
-    enable = true;
+    enable = false;
     # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]);
     package = pkgs.vscode.fhs;
     extensions = with pkgs.vscode-extensions; [
