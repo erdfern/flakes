@@ -40,7 +40,7 @@ name = "javascript"
 shebangs = ["deno", "node" ]
 roots = ["deno.json", "deno.jsonc", "package.json"]
 # file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
-language-servers = ["deno", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 auto-format = true
 
 [[language]]
@@ -48,7 +48,7 @@ name = "typescript"
 shebangs = ["deno", "bun", "ts-node"]
 roots = ["deno.json", "deno.jsonc", "package.json", "tsconfig.json"]
 # file-types = ["ts", "mts", "cts"]
-language-servers = ["deno", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 auto-format = true
 
 [[language]]
@@ -56,7 +56,7 @@ name = "jsx"
 shebangs = ["deno"]
 roots = ["deno.json", "deno.jsonc", "package.json"]
 # file-types = ["jsx"]
-language-servers = ["deno", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 auto-format = true
 
 [[language]]
@@ -64,7 +64,7 @@ name = "tsx"
 shebangs = ["deno"]
 roots = ["deno.json", "deno.jsonc"]
 # file-types = ["tsx"]
-language-servers = ["deno", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 auto-format = true
 
 [language-server.deno-lsp]
