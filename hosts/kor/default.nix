@@ -29,8 +29,8 @@
   networking.hostName = "kor";
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_6_10; # 6.11 makes hyprland super laggy? some problem with nvidia gpus i think, there's also a "Unknown-1" monitor entry which doesn't exist. Maybe also just run the amd igpu by default, idk
+    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_6_10; # 6.11 makes hyprland super laggy? some problem with nvidia gpus i think, there's also a "Unknown-1" monitor entry which doesn't exist. Maybe also just run the amd igpu by default, idk
     kernelParams = [ "nvidia-drm.modeset=1" ];
   };
 
