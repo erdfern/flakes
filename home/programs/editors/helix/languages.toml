@@ -73,7 +73,7 @@ args = ["lsp"]
 environment = { NO_COLOR = "1" }
 
 [language-server.deno-lsp.config.deno]
-enable = true
+enable = false # TODO enable
 # Uncomment to enable completion of unstable features of Deno
 # unstable = true
 # Uncomment to cache dependencies on save
