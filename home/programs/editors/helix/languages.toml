@@ -107,6 +107,7 @@ language-servers = [ "vscode-css-language-server", "tailwindcss-ls" ]
 [[language]]
 name = "svelte"
 language-servers = [ "svelteserver", "tailwindcss-ls" ]
+roots = ["package.json"]
 # formatter = { command = 'prettier', args = ["--parser", "svelte"] }
 
 # /---/
