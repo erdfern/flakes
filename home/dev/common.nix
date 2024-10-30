@@ -1,5 +1,15 @@
 { pkgs, ... }:
 {
+  fonts.fontconfig = {
+    enable = true;
+
+    defaultFonts = {
+      monospace = [ "Noto Sans Mono" ];
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      emoji = [ "Twemoji" ];
+    };
+  };
   # home = {
   #   packages = with pkgs; [
   #     devenv
