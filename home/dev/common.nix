@@ -1,19 +1,23 @@
 { pkgs, ... }:
 {
-  home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" ]; })
+  home.packages = with pkgs; [
+    gnome-font-viewer
+    noto-fonts
+    noto-fonts-emoji
+    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" ]; })
   ];
 
   fonts.fontconfig = {
     enable = true;
 
     defaultFonts = {
-      monospace = [ "Noto Sans Mono" ];
+      monospace = [ "MonaspiceAr NFP" "CaskaydiaCove NFM" "Noto Sans Mono" ];
       serif = [ "Noto Serif" ];
       sansSerif = [ "Noto Sans" ];
-      emoji = [ "Twemoji" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
+
   # home = {
   #   packages = with pkgs; [
   #     devenv

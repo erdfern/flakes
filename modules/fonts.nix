@@ -1,15 +1,13 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    twemoji-color-font
-  ];
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-emoji
-      twemoji-color-font
+  # environment.systemPackages = with pkgs; [
+  #   twemoji-color-font
+  # ];
+  # fonts = {
+    # packages = with pkgs; [
+      # twemoji-color-font
       # (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" "Iosevka" "IosevkaTerm" "NerdFontsSymbolsOnly" "DaddyTimeMono" ]; }) # fonts name in https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/data/fonts/nerdfonts/shas.nix
-    ];
+    # ];
     # fontconfig = {
     #   localConf = ''
     #     <?xml version="1.0"?>
@@ -241,5 +239,5 @@
     #     </fontconfig>
     #   '';
     # };
-  };
+  # };
 }
