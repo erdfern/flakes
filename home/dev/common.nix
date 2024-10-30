@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" ]; })
   ];
 
   fonts.fontconfig = {
