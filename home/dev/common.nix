@@ -13,7 +13,7 @@
     defaultFonts = {
       monospace = [ "MonaspiceNe NF" "CaskaydiaCove NFM" ];
       serif = [ "MonaspiceXe NF" ];
-      sansSerif = [ "MonaspiceNe NF" "CaskaydiaCove NFM" ];
+      sansSerif = [  "CaskaydiaCove NFM" "MonaspiceNe NF"];
       emoji = [ "Noto Color Emoji" ];
     };
   };
