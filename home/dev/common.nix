@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     gnome-font-viewer
-    # noto-fonts
+    noto-fonts
     noto-fonts-emoji
     (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" ]; })
   ];
@@ -11,9 +11,9 @@
     enable = true;
 
     defaultFonts = {
-      monospace = [ "CaskaydiaCove NFM" "MonaspiceNe NF"  ];
-      serif = [ "NotoSerif NF" ];
-      sansSerif = [ "NotoSans NF" ];
+      monospace = [ "MonaspiceNe NF" "CaskaydiaCove NFM" ];
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
