@@ -7,7 +7,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "jetbrains mono nerd font:size=14";
+        font = "monospace:size=16";
         dpi-aware = "yes";
       };
       mouse = {
