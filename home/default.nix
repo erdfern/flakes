@@ -18,7 +18,7 @@
     homeDirectory = "/home/${user}";
     language.base = "en_US.UTF-8";
     sessionVariables = {
-      TERMINAL = "foot";
+      TERMINAL = "kitty";
       BROWSER = "firefox";
     };
   };

@@ -6,8 +6,8 @@
 
       environment = { };
       keybindings = { };
-      font.name = "jetbrains mono nerd font";
-      font.size = 14;
+      font.name = "monospace";
+      font.size = 16;
       settings = {
         italic_font = "auto";
         bold_italic_font = "auto";
