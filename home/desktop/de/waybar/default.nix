@@ -186,7 +186,7 @@ in
     style = ''
       * {
         font-family: "JetBrainsMono Nerd Font";
-        font-size: 13px;
+        font-size: 14px;
         font-weight: bold;
         border: none;
         border-radius: 0;

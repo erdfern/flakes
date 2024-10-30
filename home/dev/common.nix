@@ -2,18 +2,18 @@
 {
   home.packages = with pkgs; [
     gnome-font-viewer
-    noto-fonts
+    # noto-fonts
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" ]; })
+    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" "JetBrainsMono"]; })
   ];
 
   fonts.fontconfig = {
     enable = true;
 
     defaultFonts = {
-      monospace = [ "MonaspiceNe NF" "CaskaydiaCove NFM" ];
-      serif = [ "Noto Serif" ];
-      sansSerif = [ "Noto Sans" ];
+      monospace = [ "MonaspiceNe NF" "CaskaydiaCove NF" ];
+      serif = [ "NotoSerif NF" ];
+      sansSerif = [ "NotoSans NF" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
