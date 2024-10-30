@@ -4,7 +4,7 @@
     gnome-font-viewer
     # noto-fonts
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" ]; })
+    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" ]; })
   ];
 
   fonts.fontconfig = {
