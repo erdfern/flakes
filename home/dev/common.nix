@@ -11,9 +11,9 @@
     enable = true;
 
     defaultFonts = {
-      monospace = [ "MonaspiceAr NFP" "CaskaydiaCove NFM" "Noto SansM NF" ];
-      serif = [ "NotoSerifM NF" ];
-      sansSerif = [ "NotoSansM NF" ];
+      monospace = [ "MonaspiceAr NFP" "CaskaydiaCove NFM" "NotoMono NF" ];
+      serif = [ "NotoSerif NF" ];
+      sansSerif = [ "NotoSans NF" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
