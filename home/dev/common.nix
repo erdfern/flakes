@@ -4,16 +4,16 @@
     gnome-font-viewer
     # noto-fonts
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" ]; })
+    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" ]; })
   ];
 
   fonts.fontconfig = {
     enable = true;
 
     defaultFonts = {
-      monospace = [ "MonaspiceNe NF" "CaskaydiaCove NFM" "NotoMono NF" ];
-      serif = [ "NotoSerif NF" ];
-      sansSerif = [ "CaskaydiaCove NFM" ];
+      monospace = [ "MonaspiceNe NF" "CaskaydiaCove NFM" ];
+      serif = [ "MonaspiceXe NF" ];
+      sansSerif = [ "MonaspiceNe NF" "CaskaydiaCove NFM" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
