@@ -9,6 +9,7 @@
       font.name = "monospace";
       font.size = 16;
       settings = {
+        disable_ligatures = "cursor";
         italic_font = "auto";
         bold_italic_font = "auto";
         mouse_hide_wait = -1; # hide on typing, else window manager should handle it
