@@ -7,13 +7,12 @@
   # home.packages = with pkgs; [ nwg-look kdePackages.breeze-gtk kdePackages.breeze-icons kdePackages.breeze ];
 
   qt.enable = true;
-  # qt.platformTheme.name = "gtk3";
-  # qt.platformTheme.name = "kvantum";
-  # qt.style.name = "kvantum";
-  home.sessionVariables = {
+  qt.platformTheme.name = "kvantum";
+  qt.style.name = "kvantum";
+  # home.sessionVariables = {
     # home.sessionVariables = { QT_QPA_PLATFORMTHEME = "gtk3"; GTK_THEME = config.gtk.theme.name; };
     # GTK_THEME = config.gtk.theme.name;
-  };
+  # };
   # home.pointerCursor = {
   # name = "phinger-cursors-dark";
   # package = pkgs.phinger-cursors;
