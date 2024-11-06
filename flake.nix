@@ -16,7 +16,7 @@
         inputs.just-flake.flakeModule
         inputs.treefmt-nix.flakeModule
       ];
-      flake = { overlays.default = selfPkgs.overlay; };
+      # flake = { overlays.default = selfPkgs.overlay; };
       perSystem = { config, pkgs, system, ... }:
         {
           # NOTE: These overlays apply to the Nix shell only. See `modules/nix.nix` for system overlays.

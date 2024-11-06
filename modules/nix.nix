@@ -31,7 +31,7 @@
       allowUnfree = true;
       permittedInsecurePackages = [ ];
     };
-    overlays = [ self.overlays.default ]; # ++ [ inputs.lix-module.overlays.default];
+    # overlays = [ self.overlays.default ]; # ++ [ inputs.lix-module.overlays.default];
   };
   nix.extraOptions = ''
     experimental-features = nix-command flakes auto-allocate-uids
