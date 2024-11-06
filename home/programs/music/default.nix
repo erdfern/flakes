@@ -3,23 +3,23 @@
 {
   # home = {
   #   packages = with pkgs; [
-      # mpc-cli
-      # go-musicfox
-      # youtube-music
-      # ytmdl
-      # ytermusic
-      # ytui-music
+  # mpc-cli
+  # go-musicfox
+  # youtube-music
+  # ytmdl
+  # ytermusic
+  # ytui-music
   #   ];
   # };
   programs = {
     cava = {
       enable = true;
-    #   catppuccin.enable = true;
+      #   catppuccin.enable = true;
     };
   };
   # home.file = {
-    # ".config/cava/config".source = ./cava_config;
-    # ".config/cava/config_internal".source = ./cava_config_internal;
+  # ".config/cava/config".source = ./cava_config;
+  # ".config/cava/config_internal".source = ./cava_config_internal;
   # };
 
   # services = {

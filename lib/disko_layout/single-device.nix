@@ -22,27 +22,27 @@
           root = {
             size = "100%";
             content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                mountpoint = "/partition-root";
-                swap = {
-                  swapfile.size = "32G";
+              type = "btrfs";
+              extraArgs = [ "-f" ];
+              mountpoint = "/partition-root";
+              swap = {
+                swapfile.size = "32G";
+              };
+              subvolumes = {
+                "/nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = [ "compress=zstd" "noatime" ];
                 };
-                subvolumes = {
-                  "/nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = [ "compress=zstd" "noatime" ];
-                  };
-                  "/swap" = {
-                    mountpoint = "/.swapvol";
-                    swap.swapfile.size = "32G";
-                  };
+                "/swap" = {
+                  mountpoint = "/.swapvol";
+                  swap.swapfile.size = "32G";
                 };
               };
             };
           };
         };
       };
+    };
     nodev."/" = {
       fsType = "tmpfs";
       mountOptions = [

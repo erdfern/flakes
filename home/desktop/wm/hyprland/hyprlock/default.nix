@@ -39,10 +39,10 @@ in
 
     # Gets placed at the bottom, so these declarations are forward referenced, which hyprlang doesn't seem to support
     # extraConfig = ''
-      # source=${catTheme}
-      #   $accent = $maroon
-      #   $accentAlpha = $maroonAlpha
-      #   $font = JetBrainsMono Nerd Font
+    # source=${catTheme}
+    #   $accent = $maroon
+    #   $accentAlpha = $maroonAlpha
+    #   $font = JetBrainsMono Nerd Font
     # '';
 
     settings = {

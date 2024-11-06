@@ -1,4 +1,4 @@
-{ pkgs, lib,nixosConfig, ... }:
+{ pkgs, lib, nixosConfig, ... }:
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
   isT14 = nixosConfig.networking.hostName == "kor-t14";

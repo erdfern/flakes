@@ -26,3 +26,6 @@ dry-build:
     [ -z "$FLAKE_ROOT" ] && echo "Entering dev shell" && nix develop --accept-flake-config
     echo "Dry building flake config"
     ./lib/scripts/dry_build.sh
+
+update:
+    nix flake update

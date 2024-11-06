@@ -50,7 +50,7 @@
   home.file = {
     # ".config/fish/functions/fish_prompt.fish".source = ./functions/fish_prompt.fish;
     # ".config/fish/conf.d/nord.fish".text = import ./nord_theme.nix;
-    ".config/fish/functions/owf.fish".source= ./functions/owf.fish;
+    ".config/fish/functions/owf.fish".source = ./functions/owf.fish;
     ".config/fish/functions/yy.fish".source = ./functions/yy.fish;
     ".config/fish/functions/xdg-get.fish".text = import ./functions/xdg-get.nix;
     ".config/fish/functions/xdg-set.fish".text = import ./functions/xdg-set.nix;

@@ -4,8 +4,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-imports = [(import ../../lib/disko_layout/hybrid-tmpfs-on-root.nix {})]++
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+  imports = [ (import ../../lib/disko_layout/hybrid-tmpfs-on-root.nix { }) ] ++
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "ahci" "usbhid" "usb_storage" "sd_mod" ];

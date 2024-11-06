@@ -4,7 +4,7 @@
 { config, lib, modulesPath, ... }:
 
 {
-imports = [(import ../../lib/disko_layout/hybrid-tmpfs-on-root.nix {})]++
+  imports = [ (import ../../lib/disko_layout/hybrid-tmpfs-on-root.nix { }) ] ++
     [
       (modulesPath + "/installer/scan/not-detected.nix")
     ];

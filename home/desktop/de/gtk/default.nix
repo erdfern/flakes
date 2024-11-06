@@ -27,23 +27,23 @@
     catppuccin.icon.enable = true;
     # theme = {
     # name = "Breeze-Dark";
-      # name = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-compact+default";
-      # package =
-      #   (pkgs.catppuccin-gtk.overrideAttrs {
-      #     src = pkgs.fetchFromGitHub {
-      #       owner = "catppuccin";
-      #       repo = "gtk";
-      #       rev = "v1.0.3";
-      #       fetchSubmodules = true;
-      #       hash = "sha256-q5/VcFsm3vNEw55zq/vcM11eo456SYE5TQA3g2VQjGc=";
-      #     };
-      #     postUnpack = "";
-      #   }).override
-      #     {
-      #       accents = [ config.catppuccin.accent ];
-      #       variant = config.catppuccin.flavor;
-      #       size = "compact";
-      #     };
+    # name = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-compact+default";
+    # package =
+    #   (pkgs.catppuccin-gtk.overrideAttrs {
+    #     src = pkgs.fetchFromGitHub {
+    #       owner = "catppuccin";
+    #       repo = "gtk";
+    #       rev = "v1.0.3";
+    #       fetchSubmodules = true;
+    #       hash = "sha256-q5/VcFsm3vNEw55zq/vcM11eo456SYE5TQA3g2VQjGc=";
+    #     };
+    #     postUnpack = "";
+    #   }).override
+    #     {
+    #       accents = [ config.catppuccin.accent ];
+    #       variant = config.catppuccin.flavor;
+    #       size = "compact";
+    #     };
     # };
     # iconTheme = {
     #   name = "Papirus-Dark";
