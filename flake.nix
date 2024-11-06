@@ -3,8 +3,8 @@
 
   outputs = { self, nixpkgs, ... } @ inputs:
     let
-      lib = nixpkgs.lib // inputs.home-manager.lib;
-      localLib = import ./lib { inherit lib; };
+      # lib = nixpkgs.lib // inputs.home-manager.lib;
+      # localLib = import ./lib { inherit lib; };
 
       selfPkgs = import ./pkgs;
     in
@@ -19,7 +19,7 @@
         inputs.just-flake.flakeModule
         inputs.treefmt-nix.flakeModule
       ];
-      # flake = { overlays.default = selfPkgs.overlay; };
+      flake = { overlays.default = selfPkgs.overlay; };
       # flake = { lib = lib // localLib; };
       perSystem = { config, pkgs, system, ... }:
         {
@@ -28,12 +28,12 @@
             inherit system;
             overlays = [
               #inputs.foo.overlays.default
-              (final: prev: {
-                lib = lib // localLib;
-                # lib = prev.lib.extend (lib: _: {
-                #   local = localLib;
-                # });
-              })
+              # (final: prev: {
+              #   lib = lib // localLib;
+              #   # lib = prev.lib.extend (lib: _: {
+              #   #   local = localLib;
+              #   # });
+              # })
             ];
           };
           devShells = {
@@ -110,7 +110,7 @@
     ];
   };
   inputs = {
-    lix-module = { url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz"; inputs.nixpkgs.follows = "nixpkgs"; };
+    # lix-module = { url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     # update single input: `nix flake lock --update-input <name>`
     # update all inputs: `nix flake update`
