@@ -4,12 +4,12 @@
   systemd.user.sessionVariables = config.home.sessionVariables;
 
   # gtk settings viewer/editor
-  home.packages = with pkgs; [ nwg-look kdePackages.breeze-gtk kdePackages.breeze-icons kdePackages.breeze ];
+  # home.packages = with pkgs; [ nwg-look kdePackages.breeze-gtk kdePackages.breeze-icons kdePackages.breeze ];
 
   qt.enable = true;
   # qt.platformTheme.name = "gtk3";
-  qt.platformTheme.name = "kvantum";
-  qt.style.name = "kvantum";
+  # qt.platformTheme.name = "kvantum";
+  # qt.style.name = "kvantum";
   home.sessionVariables = {
     # home.sessionVariables = { QT_QPA_PLATFORMTHEME = "gtk3"; GTK_THEME = config.gtk.theme.name; };
     # GTK_THEME = config.gtk.theme.name;
