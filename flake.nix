@@ -1,8 +1,11 @@
 {
   description = "rhabarber";
 
-  outputs = { self, ... } @ inputs:
+  outputs = { self, nixpkgs, ... } @ inputs:
     let
+      lib = nixpkgs.lib // inputs.home-manager.lib;
+      localLib = import ./lib { inherit lib; };
+
       selfPkgs = import ./pkgs;
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
@@ -17,6 +20,7 @@
         inputs.treefmt-nix.flakeModule
       ];
       # flake = { overlays.default = selfPkgs.overlay; };
+      # flake = { lib = lib // localLib; };
       perSystem = { config, pkgs, system, ... }:
         {
           # NOTE: These overlays apply to the Nix shell only. See `modules/nix.nix` for system overlays.
@@ -24,6 +28,12 @@
             inherit system;
             overlays = [
               #inputs.foo.overlays.default
+              (final: prev: {
+                lib = lib // localLib;
+                # lib = prev.lib.extend (lib: _: {
+                #   local = localLib;
+                # });
+              })
             ];
           };
           devShells = {
