@@ -9,10 +9,10 @@
         "/var/lib"
         "/etc/secureboot"
       ];
-      files = [
-        "/etc/machine-id"
-        "/etc/create_ap.conf"
-      ];
+      # files = [
+      #   "/etc/machine-id"
+      #   "/etc/create_ap.conf"
+      # ];
       users.${user} = {
         directories = [
           "Downloads"
