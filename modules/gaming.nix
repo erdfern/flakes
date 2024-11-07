@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   programs.steam = {
-    enable = false;
+    enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     package = pkgs.steam.override {
