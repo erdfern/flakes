@@ -21,6 +21,7 @@ in
           ./systemdboot.nix
           ./nix.nix
           ./security_key.nix
+          ./gaming.nix
           # lix-module.nixosModules.default
           # inputs.lix-module.nixosModules.default
           # inputs.lix-module.nixosModules.default # Could maybe also set nix.package in nix.nix?
