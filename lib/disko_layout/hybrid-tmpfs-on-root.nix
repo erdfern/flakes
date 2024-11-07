@@ -23,27 +23,36 @@
             };
           };
           root = {
+            # size = "100%";
+            end = "-32G";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/nix";
+              # type = "btrfs";
+              # extraArgs = [ "-f" ];
+              # mountpoint = "/partition-root";
+              # swap.swapfile = { size = "20M"; };
+
+              # subvolumes = {
+              #   "/nix" = { mountpoint = "/nix"; mountOptions = [ "compress=zstd" "noatime" ]; };
+              #   "/swap" = {
+              #     mountpoint = "/.swapvol";
+              #     swap = {
+              #       swapfile.size = "32G";
+              #       # swapfile1.size = "20M";
+              #       # swapfile1.path = "rel-path";
+              #     };
+              #   };
+              # };
+            };
+          };
+          plainSwap = {
             size = "100%";
             content = {
-              # type = "filesystem";
-              # format = "ext4";
-              # mountpoint = "/nix";
-              type = "btrfs";
-              extraArgs = [ "-f" ];
-              mountpoint = "/partition-root";
-              swap.swapfile = { size = "20M"; };
-
-              subvolumes = {
-                "/nix" = { mountpoint = "/nix"; mountOptions = [ "compress=zstd" "noatime" ]; };
-                "/swap" = {
-                  mountpoint = "/.swapvol";
-                  swap = {
-                    swapfile.size = "32G";
-                    # swapfile1.size = "20M";
-                    # swapfile1.path = "rel-path";
-                  };
-                };
-              };
+              type = "swap";
+              discardPolicy = "both";
+              resumeDevice = true;
             };
           };
         };
@@ -52,7 +61,7 @@
     nodev."/" = {
       fsType = "tmpfs";
       mountOptions = [
-        "size=8G"
+        "size=16G"
         "defaults"
         "mode=755"
       ];
