@@ -97,18 +97,18 @@ suggest = { completeFunctionCalls = false, imports = { hosts = { "https://deno.l
 [[language]]
 name = "html"
 language-servers = [ "vscode-html-language-server", "tailwindcss-ls" ]
-# formatter = { command = 'prettier', args = ["--parser", "html"] }
+formatter = { command = 'prettier', args = ["--parser", "html"] }
 
 [[language]]
 name = "css"
 language-servers = [ "vscode-css-language-server", "tailwindcss-ls" ]
-# formatter = { command = 'prettier', args = ["--parser", "css"] }
+formatter = { command = 'prettier', args = ["--parser", "css"] }
 
 [[language]]
 name = "svelte"
 language-servers = [ "svelteserver", "tailwindcss-ls" ]
 roots = ["package.json"]
-# formatter = { command = 'prettier', args = ["--parser", "svelte"] }
+formatter = { command = 'prettier', args = ["--parser", "svelte"] }
 
 # /---/
 
