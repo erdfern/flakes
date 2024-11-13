@@ -11,4 +11,8 @@
         else [ package32 ] ++ extraPackages32);
     };
   };
+
+  environment = {
+    systemPackages = with pkgs; [ heroic ];
+  };
 }
