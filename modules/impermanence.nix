@@ -22,6 +22,7 @@
           "Documents"
           "Videos"
           "Flakes"
+          "Games"
           "Kvm"
           "Projects"
           ".cache"
