@@ -39,6 +39,6 @@ in
   imports = [ myRustModule ];
 
   programs.rust = {
-    enable = false;
+    enable = true;
   };
 }
