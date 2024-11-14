@@ -14,9 +14,12 @@
       # };
       delta = {
         # syntax highlighting pager
-        enable = true;
+        enable = false;
         catppuccin.enable = true;
         options.navigate = true;
+      };
+      difftastic = {
+        enable = true;
       };
       extraConfig = {
         core.exludesFile = "~/.gitignore_global";
