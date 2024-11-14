@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.chromium = {
-    enable = false;
+    enable = true;
     commandLineArgs = [ "--enable-features=UseOzonePlatform" "--ozone-platform=wayland" ];
     extensions =
       [
