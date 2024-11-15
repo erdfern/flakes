@@ -75,7 +75,6 @@ in
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-        no_gaps_when_only = 1; # 1 - no border, 2 - with border
       };
 
       misc = {
@@ -219,13 +218,12 @@ in
           (f "imv")
           (f "mpv")
           (f "nemo")
-          # (f "termfloat")
+          (f "termfloat")
           (f "danmufloat")
           "pin,danmufloat"
           "rounding 5,danmufloat"
           "size 980 560,danmufloat"
           # "move -25%,danmufloat"
-          "float,termfloat"
           "rounding 5,termfloat"
           "size 980 640,termfloat"
           # "move -25%,termfloat"
@@ -234,13 +232,27 @@ in
 
       windowrulev2 = [
         "immediate, class:^(rimworld)$"
+
+        # smart gaps/'no gaps when only'
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
+
+      workspace = [
+        # smart gaps/'no gaps when only'
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
       ];
 
       decoration = {
-        drop_shadow = "yes";
-        shadow_range = 8;
-        shadow_render_power = 2;
-        "col.shadow" = "rgba(00000044)";
+        shadow = {
+          enabled = true;
+          range = 8;
+          render_power = 2;
+          color = "rgba(00000044)";
+        };
 
         # dim_inactive = false;
         # dim_strength = 0.5;
