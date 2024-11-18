@@ -19,7 +19,7 @@
   # size = 24;
   # gtk.enable = true;
   # };
-  catppuccin.pointerCursor.enable = false;
+  catppuccin.pointerCursor.enable = true;
   gtk = {
     enable = true;
     catppuccin.enable = true;
