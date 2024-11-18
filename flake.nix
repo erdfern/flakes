@@ -89,7 +89,7 @@
             convco.enable = true;
           };
           # used by the `nix fmt` command
-          # formatter = config.treefmt.build.wrapper;
+          formatter = config.treefmt.build.wrapper;
           treefmt.config = {
             inherit (config.flake-root) projectRootFile;
             package = pkgs.treefmt;

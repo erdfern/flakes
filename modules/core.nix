@@ -92,20 +92,29 @@
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
-      # cacert # bundle of public Certificate Authorities. Probably installed by default???
-      git
-      gnumake
-      just
+      gcc
+      clang
+      gdb
+      neovim
+      helix
       wget
+      neofetch
+      eza
       p7zip
       atool
       unzip
       zip
       rar
+      ffmpeg
       xdg-utils
       pciutils
       killall
-      # sops
+      socat
+      sops
+      lsof
+      rustscan
+      onefetch
+      jq
     ];
   };
 

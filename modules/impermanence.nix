@@ -34,6 +34,7 @@
           ".mozilla"
           ".steam"
           ".gradle"
+          ".cargo"
         ];
         files = [ ".nvidia-settings-rc" ];
       };
