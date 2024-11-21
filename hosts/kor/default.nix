@@ -32,10 +32,19 @@
   };
 
   hardware = {
+    graphics.enable = true;
+    graphics.extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      vaapiVdpau
+      libvdpau-va-gl
+      # mesa.drivers
+      # amdvlk
+    ];
     nvidia = {
-      # package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      open = true;
+      open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
       powerManagement.enable = true; # suspend/wakeup issues
@@ -45,14 +54,6 @@
       # nvidiaBusId = "PCI:01:00:0";
       # };
     };
-    graphics.enable = true;
-    graphics.extraPackages = with pkgs; [
-      nvidia-vaapi-driver
-      vaapiVdpau
-      libvdpau-va-gl
-      # mesa.drivers
-      # amdvlk
-    ];
     #graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
   };
 
