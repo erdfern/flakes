@@ -41,8 +41,8 @@ in
         # "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
 
-      # debug.disable_logs = false;
-      # debug.enable_stdout_logs = true;
+      debug.disable_logs = false;
+      debug.enable_stdout_logs = true;
 
       monitor = [
         "Unknown-1, disable"
