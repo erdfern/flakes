@@ -66,7 +66,7 @@ in
       };
 
       cursor = {
-        # no_hardware_cursors = true;
+        no_hardware_cursors = true;
         inactive_timeout = 3;
         hide_on_touch = true;
         # no_warps = true;

@@ -27,17 +27,17 @@
   services = {
     # tlp.enable = true;
     # auto-cpufreq.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
-    # xserver.videoDrivers = [ "nouveau" ];
+    # xserver.videoDrivers = [ "nvidia" ];
+    xserver.videoDrivers = [ "nouveau" ];
     # xserver.videoDrivers = [ "amdgpu" ];
   };
 
   hardware = {
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      open = false;
-      nvidiaSettings = true;
+      open = true;
+      # nvidiaSettings = true;
       modesetting.enable = true;
       powerManagement.enable = true; # suspend/wakeup issues
       # prime = {
@@ -55,8 +55,6 @@
       # amdvlk
     ];
     #graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
-
-    # pulseaudio.support32Bit = true;
   };
 
   environment = {
@@ -74,8 +72,11 @@
   ];
 
   environment.variables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # LIBVA_DRIVER_NAME = "nvidia";
+    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nouveau";
+    __GLX_VENDOR_LIBRARY_NAME = "nouveau";
+
     GBM_BACKEND = "nvidia-drm";
     # WLR_RENDERER = "vulkan";
     AQ_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu";
