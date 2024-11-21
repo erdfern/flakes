@@ -15,8 +15,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    # kernelPackages = pkgs.linuxPackages_6_10; # 6.11 makes hyprland super laggy? some problem with nvidia gpus i think, there's also a "Unknown-1" monitor entry which doesn't exist. Maybe also just run the amd igpu by default, idk
-    kernelParams = [ "nvidia-drm.modeset=1" ];
+    kernelParams = [ "nvidia-drm.modeset=1" "fbdev=1" ];
   };
 
   security.tpm2.enable = true;
@@ -27,8 +26,8 @@
   services = {
     # tlp.enable = true;
     # auto-cpufreq.enable = true;
-    # xserver.videoDrivers = [ "nvidia" ];
-    xserver.videoDrivers = [ "nouveau" ];
+    xserver.videoDrivers = [ "nvidia" ];
+    # xserver.videoDrivers = [ "nouveau" ];
     # xserver.videoDrivers = [ "amdgpu" ];
   };
 
@@ -37,7 +36,7 @@
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       open = true;
-      # nvidiaSettings = true;
+      nvidiaSettings = true;
       modesetting.enable = true;
       powerManagement.enable = true; # suspend/wakeup issues
       # prime = {
@@ -72,18 +71,17 @@
   ];
 
   environment.variables = {
-    # LIBVA_DRIVER_NAME = "nvidia";
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    LIBVA_DRIVER_NAME = "nouveau";
-    __GLX_VENDOR_LIBRARY_NAME = "nouveau";
+    AQ_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu";
+
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
     GBM_BACKEND = "nvidia-drm";
-    # WLR_RENDERER = "vulkan";
-    AQ_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu";
-    WLR_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu";
-    # WLR_DRM_DEVICES = "$HOME/.config/hypr/nv2700s";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    __GL_GSYNC_ALLOWED = "1";
+    __GL_VRR_ALLOWED = "0";
+    # WLR_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu";
+    # WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_RENDERER_ALLOW_SOFTWARE = "1";
     #__NV_PRIME_RENDER_OFFLOAD = "1";
   };
 }

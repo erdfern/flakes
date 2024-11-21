@@ -34,6 +34,7 @@ in
       ];
 
       env = [
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         # "XCURSOR_SIZE,24"
         # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
         # "HYPRCURSOR_SIZE,24"
