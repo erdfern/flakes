@@ -43,8 +43,8 @@
     ];
     nvidia = {
       # package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # package = config.boot.kernelPackages.nvidiaPackages.beta;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
