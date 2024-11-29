@@ -3,8 +3,10 @@
   imports = [ ./config.nix ./hyprlock ./hyprpaper ];
 
   wayland.windowManager.hyprland = {
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlattform.system}.hyprland;
     enable = true;
+    # TODO use UWSM
+    # https://github.com/NixOS/nixpkgs/blob/4633a7c72337ea8fd23a4f2ba3972865e3ec685d/nixos/modules/programs/wayland/hyprland.nix#L55   
     systemd = {
       enable = true;
       enableXdgAutostart = true;

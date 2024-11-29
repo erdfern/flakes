@@ -131,7 +131,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     # --- WM ---
-    # hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
     hypr-contrib = { url = "github:hyprwm/contrib"; inputs.nixpkgs.follows = "nixpkgs"; };
     # hyprland-plugins = { url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland"; };
     # hyprpicker = { url = "github:hyprwm/hyprpicker"; inputs.nixpkgs.follows = "nixpkgs"; };
