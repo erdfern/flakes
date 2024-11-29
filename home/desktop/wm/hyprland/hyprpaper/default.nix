@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
   wallpapers = map builtins.toString [
+    ./whale.jpg
     ./astro.png
     ./wallcat.png
-    ./whale.jpg
     ./bunnies-road.png
   ];
 
@@ -19,8 +19,9 @@ in
       preload = wallpapers;
       wallpaper = [
         (wp (builtins.elemAt wallpapers 0) null)
-        (wp (builtins.elemAt wallpapers 1) null)
-        (wp (builtins.elemAt wallpapers 2) null)
+        # (wp (builtins.elemAt wallpapers 1) null)
+        # (wp (builtins.elemAt wallpapers 2) null)
+        # (wp (builtins.elemAt wallpapers 3) null)
       ];
     };
   };
