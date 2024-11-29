@@ -4,11 +4,11 @@ let
     url = "https://i.redd.it/mvev8aelh7zc1.png";
     hash = "sha256-lJjIq+3140a5OkNy/FAEOCoCcvQqOi73GWJGwR2zT9w";
   };
-  # wp = ./whale.jpg;
-  # catppuccin-wall = builtins.path {
-  #   path = ./wallcat.png;
-  #   name = "wallcat";
-  # };
+  catppuccin-wall = builtins.path {
+    path = ./wallcat.png;
+    # name = "wallcat";
+  };
+  whale = builtins.path { path = ./whale.jpg; };
 in
 {
   services.hyprpaper = {
@@ -17,11 +17,15 @@ in
       ipc = "on";
       splash = false;
       splash_offset = "2.0";
-      preload = [ (builtins.toString wallpaper) ];
-      # wallpaper = [ ",${builtins.toString wallpaper}" ];
-      wallpaper = [ "$HOME/.config/whale.jpg" ];
+      # preload = [ (builtins.toString wallpaper) ];
+      preload = [ wallpaper catppuccin-wall whale ];
+      # wallpaper = [ ", ${builtins.toString wallpaper}" ];
+      # wallpaper = [ ", $HOME/Pictures/whale.jpg" ];
+      wallpaper = [
+        ", ${catppuccin-wall}"
+        ", ${whale}"
+        ", ${wallpaper}"
+      ];
     };
   };
-
-  home.file."whale.jpg".source = ./whale.jpg;
 }
