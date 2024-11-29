@@ -1,14 +1,13 @@
 { pkgs, ... }:
 let
-  wallpaper = pkgs.fetchurl {
-    url = "https://i.redd.it/mvev8aelh7zc1.png";
-    hash = "sha256-lJjIq+3140a5OkNy/FAEOCoCcvQqOi73GWJGwR2zT9w";
-  };
-  catppuccin-wall = builtins.path {
-    path = ./wallcat.png;
-    # name = "wallcat";
-  };
-  whale = builtins.path { path = ./whale.jpg; };
+  wallpapers = map builtins.toString [
+    ./astro.png
+    ./wallcat.png
+    ./whale.jpg
+    ./bunnies-road.png
+  ];
+
+  wp = wallpaper: monitor: "${if monitor != null then monitor else ""}, ${builtins.toString wallpaper}";
 in
 {
   services.hyprpaper = {
@@ -17,15 +16,26 @@ in
       ipc = "on";
       splash = false;
       splash_offset = "2.0";
-      # preload = [ (builtins.toString wallpaper) ];
-      preload = [ wallpaper catppuccin-wall whale ];
-      # wallpaper = [ ", ${builtins.toString wallpaper}" ];
-      # wallpaper = [ ", $HOME/Pictures/whale.jpg" ];
+      preload = wallpapers;
       wallpaper = [
-        ", ${catppuccin-wall}"
-        ", ${whale}"
-        ", ${wallpaper}"
+        (wp (builtins.elemAt wallpapers 0) null)
+        (wp (builtins.elemAt wallpapers 1) null)
+        (wp (builtins.elemAt wallpapers 2) null)
       ];
     };
   };
 }
+
+# { pkgs, ... }:
+# let
+#   wallpaper = pkgs.fetchurl {
+#     url = "https://i.redd.it/mvev8aelh7zc1.png";
+#     hash = "sha256-lJjIq+3140a5OkNy/FAEOCoCcvQqOi73GWJGwR2zT9w";
+#   };
+#   catppuccin-wall = builtins.path {
+#     path = ./wallcat.png;
+#     # name = "wallcat";
+#   };
+#   whale = builtins.path { path = ./whale.jpg; };
+#   bnuy = ./bunnies-road.png;
+# in
