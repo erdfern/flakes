@@ -1,15 +1,15 @@
 { ... }:
 let
-  baseTheme = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/hyprland/main/themes/macchiato.conf";
-    sha256 = "sha256:1f8fr5sf220g4pc7vcg2cs51rzp49a7dgr8rlwspybvmz9wdc3c8";
-  };
-  catTheme = builtins.toFile "macciatho.conf" ''
-    ${builtins.readFile baseTheme}
-    $accent = $maroon
-    $accentAlpha = $maroonAlpha
-    $font = JetBrainsMono Nerd Font
-  '';
+  # baseTheme = builtins.fetchurl {
+  #   url = "https://raw.githubusercontent.com/catppuccin/hyprland/main/themes/macchiato.conf";
+  #   sha256 = "sha256:1f8fr5sf220g4pc7vcg2cs51rzp49a7dgr8rlwspybvmz9wdc3c8";
+  # };
+  # catTheme = builtins.toFile "macciatho.conf" ''
+  #   ${builtins.readFile baseTheme}
+  #   $accent = $maroon
+  #   $accentAlpha = $maroonAlpha
+  #   $font = JetBrainsMono Nerd Font
+  # '';
 in
 {
   home.file.".config/.avatar".source = ./avatar.jpg;
@@ -36,6 +36,11 @@ in
   };
   programs.hyprlock = {
     enable = true;
+    catppuccin = {
+      enable = true;
+      accent = "maroon";
+      flavor = "mocha";
+    };
 
     # Gets placed at the bottom, so these declarations are forward referenced, which hyprlang doesn't seem to support
     # extraConfig = ''
@@ -46,7 +51,7 @@ in
     # '';
 
     settings = {
-      source = [ catTheme ];
+      # source = [ catTheme ];
 
       general = {
         grace = 5;
