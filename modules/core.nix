@@ -92,29 +92,30 @@
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
-      gcc
-      clang
-      gdb
+      # gcc
+      # clang
+      # gdb
       neovim
       helix
       wget
       neofetch
-      eza
+      # eza
       p7zip
       atool
       unzip
       zip
       rar
-      ffmpeg
+      # ffmpeg
       xdg-utils
       pciutils
       killall
       socat
       sops
       lsof
-      rustscan
-      onefetch
+      # rustscan
+      # onefetch
       jq
+      nvd
     ];
   };
 
