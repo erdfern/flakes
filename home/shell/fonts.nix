@@ -4,8 +4,8 @@
     # gnome-font-viewer
     # noto-fonts
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" "JetBrainsMono" ]; })
-  ];
+    # (nerdfonts.override { fonts = [ "CascadiaCode" "Monaspace" "Noto" "JetBrainsMono" ]; })
+  ] ++ (with nerd-fonts ; [ monaspace caskaydia-cove noto jetbrains-mono ]);
 
   fonts.fontconfig = {
     enable = true;
