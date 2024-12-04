@@ -19,11 +19,11 @@ in
       "position" = "top";
       modules-left = [
         "custom/launcher"
+        "hyprland/workspaces"
         "idle_inhibitor"
         "wireplumber"
         (lib.mkIf isT14 "backlight")
         # "backlight"
-        # "hyprland/workspaces"
         # "mpd"
         # "cava"
       ];
@@ -31,13 +31,13 @@ in
         "clock"
       ];
       modules-right = [
-        "memory"
         "cpu"
+        "memory"
         "temperature"
-        "network"
         "battery"
-        "custom/powermenu"
+        "network"
         "tray"
+        "custom/powermenu"
       ];
       idle_inhibitor = {
         format = "{icon}";
@@ -47,7 +47,7 @@ in
         };
       };
       "custom/launcher" = {
-        "format" = " ";
+        "format" = "";
         "on-click" = "pkill fuzzel || fuzzel";
         "tooltip" = false;
       };
@@ -73,10 +73,10 @@ in
         # "actions" = { "on-click-right" = "mode"; };
       };
       "hyprland/workspaces" = {
-        "format" = "{name}";
-        "on-click" = "activate";
-        "on-scroll-up" = "hyprctl dispatch workspace e+1";
-        "on-scroll-down" = "hyprctl dispatch workspace e-1";
+        "format" = "{icon} {name}";
+        # "on-click" = "activate";
+        # "on-scroll-up" = "hyprctl dispatch workspace e+1";
+        # "on-scroll-down" = "hyprctl dispatch workspace e-1";
       };
       "backlight" = {
         "device" = "intel_backlight";
@@ -195,13 +195,11 @@ in
         transition-duration: 0.5s;
       }
       window#waybar {
-        background-color: @theme_bg_color;
+        background: @theme_bg_color;
         color: @theme_text_color;
-        border-bottom: 1px solid @unfocused_borders;
       }
       tooltip {
         background: @theme_base_color;
-        border: 1px solid @unfocused_borders;
       }
       tooltip label {
         color: @theme_text_color;
