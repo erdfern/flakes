@@ -5,16 +5,18 @@
 }
 
 #waybar {
-  background: transparent;
+  /* background: transparent; */
+  /* background: @surface0; */
+  background: @base;
   color: @text;
   margin: 5px 5px;
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
   background-color: @surface0;
-  margin-left: 1rem;
+  margin: 5px 0;
+  border-radius: 0.5rem;
+  /* margin-left: 1rem; */
 }
 
 #workspaces button {
@@ -33,23 +35,32 @@
   border-radius: 1rem;
 }
 
-#custom-music,
-#tray,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
+/* left */
+#idle_inhibitor,
+#wireplumber,
+#backlight {
+  padding: 0 0.5rem;
   margin: 5px 0;
 }
 
+/* center */
 #clock {
   color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+  /* border-radius: 0 1rem 1rem 0; */
+  /* margin-right: 1rem; */
+  margin: 5px 5px;
+}
+
+/* right */
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#tray {
+  /* background-color: @surface0; */
+  padding: 0 0.5rem;
+  margin: 5px 0;
 }
 
 #battery {
@@ -72,29 +83,28 @@
     border-radius: 0;
 }
 
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+#wireplumber {
+  color: @flamingo;
+  /* border-radius: 1rem 0px 0px 1rem; */
+  /* margin-left: 1rem; */
 }
 
-#custom-music {
+#temperature {
   color: @mauve;
-  border-radius: 1rem;
 }
 
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
+#temperature.critical {
+  color: @red;
 }
 
-#custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
+#idle_inhibitor {
+  color: @rosewater;
+  -gtk-icon-effect: dim;
 }
 
-#tray {
+#idle_inhibitor.activated { color: @peach; }
+
+/* #tray { 
   margin-right: 1rem;
   border-radius: 1rem;
-}
+} */

@@ -20,9 +20,121 @@ in
       position = "top";
       # height = 30;
 
-      modules-left = [ ];
+      modules-left = [ "idle_inhibitor" (lib.mkIf isT14 "backlight") "wireplumber" "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right = [ ];
+      modules-right = [ "cpu" "memory" "temperature" "battery" "network" "tray" ];
+
+      # Modules
+      cpu = {
+        interval = 1;
+        format = "󰻠 {usage}%";
+      };
+      backlight = {
+        device = "intel_backlight";
+        on-scroll-up = "light -A 5";
+        on-scroll-down = "light -U 5";
+        format = "{icon} {percent}%";
+        format-icons = [ "󰃝" "󰃞" "󰃟" "󰃠" ];
+      };
+      memory = {
+        interval = 1;
+        format = "󰍛 {percentage}%";
+        states = {
+          warning = 85;
+        };
+      };
+      battery = {
+        interval = 10;
+        states = {
+          warning = 20;
+          critical = 10;
+        };
+        format = "{icon} {capacity}%";
+        format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+        format-full = "{icon} {capacity}%";
+        format-charging = "󰂄 {capacity}%";
+        tooltip = false;
+      };
+      "hyprland/workspaces" = {
+        format = "{icon}:{windows}";
+        # format-window-separator = "\n";
+        window-rewrite-default = "";
+        window-rewrite = {
+          "title<.*youtube.*>" = "";
+          "class<firefox>" = "";
+          "class<firefox> title<.*github.*>" = "";
+          "kitty" = "";
+          "steam" = "";
+          # "code" = "󰨞";
+        };
+      };
+      network = {
+        max-length = 32;
+        format-disconnected = "󰯡 Disconnected";
+        format-ethernet = "󰈀 {ifname})";
+        format-linked = "󰖪 {essid} (No IP)";
+        format-wifi = "󰖩 {essid}";
+        interval = 1;
+        tooltip = true;
+        tooltip-format = "{ifname} via {gwaddr}";
+        tooltip-format-wifi = "{essid} ({signalStrength}%) ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}";
+        tooltip-format-ethernet = "{ifname} ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}";
+        tooltip-format-disconnected = "Disconnected";
+      };
+      temperature = {
+        critical-threshold = 64;
+        thermal-zone = if isT14 then 3 else 1;
+        tooltip = false;
+        format = " {temperatureC}󰔄";
+        format_critical = " {temperatureC}󰔄";
+      };
+      tray = {
+        icon-size = 15;
+        spacing = 5;
+      };
+      idle_inhibitor = {
+        format = "{icon}";
+        format-icons = {
+          activated = "";
+          deactivated = "";
+        };
+      };
+      clock = {
+        format = "{:%H:%M}";
+        format-alt = "{:%A, %B %d, %Y (%R)}";
+        tooltip-format = "<tt><small>{calendar}</small></tt>";
+        calendar = {
+          mode = "year";
+          mode-mon-col = 3;
+          weeks-pos = "right";
+          on-scroll = 1;
+          on-click-right = "mode";
+          format = {
+            months = "<span color='#ffead3'><b>{}</b></span>";
+            days = "<span color='#ecc6d9'><b>{}</b></span>";
+            weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+          };
+        };
+        actions = {
+          on-click-right = "mode";
+          on-click-forward = "tz_up";
+          on-click-backward = "tz_down";
+          on-scroll-up = "shift_up";
+          on-scroll-down = "shift_down";
+        };
+      };
+      wireplumber = {
+        max-length = 16;
+        scroll-step = 1;
+        format = "{icon} {volume}% {node_name}";
+        format-muted = "󰝟";
+        format-icons = [ "󰕾" "󰖀" "󰕿" ];
+        on-click = "pamixer -t";
+        tooltip = true;
+        tooltip-format = "{node_name}@{volume}%";
+      };
     }];
     style = style;
   };
