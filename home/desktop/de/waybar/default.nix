@@ -2,6 +2,7 @@
 let
   sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
   isT14 = nixosConfig.networking.hostName == "kor-t14";
+  style = builtins.readFile ./style.css;
 in
 {
   # TODO: the applet services don't survive `exit`
@@ -9,19 +10,21 @@ in
   services.network-manager-applet.enable = true;
   programs.waybar = {
     enable = true;
-    catppuccin.enable = false;
+    catppuccin.enable = true;
     systemd = {
       enable = false; # disable it, autostart it in hyprland conf
       # target = "graphical-session.target";
     };
     settings = [{
-      "layer" = "top";
-      "position" = "top";
+      layer = "top";
+      position = "top";
+      # height = 30;
+
       modules-left = [ ];
       modules-center = [ "clock" ];
       modules-right = [ ];
     }];
-    # style = '''';
+    style = style;
   };
 }
 # { pkgs, lib, nixosConfig, ... }:
