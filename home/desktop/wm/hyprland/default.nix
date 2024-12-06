@@ -31,16 +31,16 @@
 
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
 
-  home.sessionVariables = {
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    _JAVA_AWT_WM_NONREPARENTING = "1";
-    QT_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-  };
+  # home.sessionVariables = {
+    # SDL_VIDEODRIVER = "wayland";
+    # CLUTTER_BACKEND = "wayland";
+    # _JAVA_AWT_WM_NONREPARENTING = "1";
+    # QT_SCALE_FACTOR = "1";
+    # QT_QPA_PLATFORM = "wayland";
+    # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    # QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    # XDG_CURRENT_DESKTOP = "Hyprland";
+    # XDG_SESSION_DESKTOP = "Hyprland";
+    # XDG_SESSION_TYPE = "wayland";
+  # };
 }
