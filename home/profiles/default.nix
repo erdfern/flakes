@@ -8,7 +8,7 @@ let
     module_args
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.nix-index-database.hmModules.nix-index
-    inputs.nur.hmModules.nur
+    inputs.nur.modules.homeManager.default
     (import ../. { inherit user config lib; })
     (import ../desktop/de)
   ];
