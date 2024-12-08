@@ -39,7 +39,7 @@
       # path = "nix";
       isDefault = true;
       # search.default = "DuckDuckGo";
-      extensions = with config.nur.repos.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         tree-style-tab
         proton-pass
         # proton-vpn
