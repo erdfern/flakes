@@ -39,17 +39,17 @@
       # path = "nix";
       isDefault = true;
       # search.default = "DuckDuckGo";
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        tree-style-tab
-        proton-pass
-        # proton-vpn
-        # firefox-color # not declarative :(
-        # https://github.com/catppuccin/vimium - don't know how to add this declaratively :((
-        vimium
-        ublock-origin
-        privacy-badger
-        dictionary-german
-      ];
+      # extensions = with config.nur.repos.rycee.firefox-addons; [
+      #   tree-style-tab
+      #   proton-pass
+      #   # proton-vpn
+      #   # firefox-color # not declarative :(
+      #   # https://github.com/catppuccin/vimium - don't know how to add this declaratively :((
+      #   vimium
+      #   ublock-origin
+      #   privacy-badger
+      #   dictionary-german
+      # ];
       # settings = {
       # "browser.startup.homepage" = "file://${homepage}";
       # };
