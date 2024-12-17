@@ -22,6 +22,7 @@
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     hypridle
+    hyprsunset
     pamixer
     # libsforQt5.qt5.qtwayland
     qt6.qtwayland
