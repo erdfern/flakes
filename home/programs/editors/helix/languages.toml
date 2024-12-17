@@ -42,6 +42,8 @@ roots = ["deno.json", "deno.jsonc", "package.json"]
 # file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
 # language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".js"] }
 auto-format = true
 
 [[language]]
@@ -51,6 +53,8 @@ roots = ["deno.json", "deno.jsonc", "package.json", "tsconfig.json"]
 # file-types = ["ts", "mts", "cts"]
 # language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".ts"] }
 auto-format = true
 
 [[language]]
@@ -60,6 +64,8 @@ roots = ["deno.json", "deno.jsonc", "package.json"]
 # file-types = ["jsx"]
 # language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".jsx"] }
 auto-format = true
 
 [[language]]
@@ -69,6 +75,8 @@ roots = ["deno.json", "deno.jsonc"]
 # file-types = ["tsx"]
 # language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
 language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".tsx"] }
 auto-format = true
 
 [language-server.deno-lsp]
@@ -108,8 +116,8 @@ formatter = { command = 'prettier', args = ["--parser", "css"] }
 name = "svelte"
 language-servers = [ "svelteserver", "tailwindcss-ls" ]
 roots = ["package.json"]
-formatter = { command = 'prettier', args = ["--parser", "svelte"] }
-
+formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-svelte", "--parser", "svelte"] }
+auto-format = true
 # /---/
 
 [language-server]
