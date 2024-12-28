@@ -60,7 +60,7 @@ in
         resize_on_border = true;
         hover_icon_on_border = true;
         border_size = 1;
-        gaps_in = 0;
+        gaps_in = 1;
         gaps_out = 0;
         # gaps_in = 2;
         # gaps_out = 8;
