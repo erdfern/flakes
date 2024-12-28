@@ -61,7 +61,7 @@ in
         hover_icon_on_border = true;
         border_size = 1;
         gaps_in = 1;
-        gaps_out = 0;
+        gaps_out = 1;
         # gaps_in = 2;
         # gaps_out = 8;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
