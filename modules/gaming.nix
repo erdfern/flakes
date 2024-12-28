@@ -12,7 +12,7 @@
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [ heroic ];
-  };
+  # environment = {
+  #   systemPackages = with pkgs; [ heroic ];
+  # };
 }

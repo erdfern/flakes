@@ -1,29 +1,49 @@
 { pkgs, config, ... }:
 {
   # needed for xdg-open? also TODO move
-  systemd.user.sessionVariables = config.home.sessionVariables;
+  # systemd.user.sessionVariables = config.home.sessionVariables;
 
   # gtk settings viewer/editor
-  # home.packages = with pkgs; [ nwg-look kdePackages.breeze-gtk kdePackages.breeze-icons kdePackages.breeze ];
+  home.packages = with pkgs; [ nwg-look] ++ (with kdePackages; [breeze breeze.qt5 breeze-icons]); #kdePackages.breeze-gtk kdePackages.breeze-icons kdePackages.breeze ];
+
+  catppuccin.pointerCursor.enable = true;
 
   qt.enable = true;
   qt.platformTheme.name = "kvantum";
   qt.style.name = "kvantum";
-  # home.sessionVariables = {
-    # home.sessionVariables = { QT_QPA_PLATFORMTHEME = "gtk3"; GTK_THEME = config.gtk.theme.name; };
-    # GTK_THEME = config.gtk.theme.name;
-  # };
-  # home.pointerCursor = {
-  # name = "phinger-cursors-dark";
-  # package = pkgs.phinger-cursors;
-  # size = 24;
-  # gtk.enable = true;
-  # };
-  catppuccin.pointerCursor.enable = true;
+
   gtk = {
     enable = true;
-    catppuccin.enable = true;
-    catppuccin.icon.enable = true;
+    theme = {
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyonight-gtk-theme;
+    };
+    iconTheme = {
+      name = "Tela-circle-Dark";
+      package = pkgs.tela-circle-icon-theme;
+    };
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 12;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-xft-antialias = 1;
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintslight";
+      gtk-xft-rgba = "rgb";
+    };
+    gtk2.extraConfig = ''
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle="hintslight"
+      gtk-xft-rgba="rgb"
+    '';
+    # catppuccin.enable = true;
+    # catppuccin.icon.enable = true;
     # theme = {
     # name = "Breeze-Dark";
     # name = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-compact+default";
@@ -51,26 +71,6 @@
     #     accent = config.catppuccin.accent;
     #   };
     # };
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 12;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-      gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
-      gtk-xft-hintstyle = "hintslight";
-      gtk-xft-rgba = "rgb";
-    };
-    gtk2.extraConfig = ''
-      gtk-xft-antialias=1
-      gtk-xft-hinting=1
-      gtk-xft-hintstyle="hintslight"
-      gtk-xft-rgba="rgb"
-    '';
   };
   dconf.settings = {
     "org/gnome/desktop/interface".color-scheme = "prefer-dark"; # NO IDEA why this doesn't get set by either gtk3.extraConfig or the catppuccin integration...
