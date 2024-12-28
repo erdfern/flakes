@@ -4,7 +4,7 @@
   # systemd.user.sessionVariables = config.home.sessionVariables;
 
   # gtk settings viewer/editor
-  home.packages = with pkgs; [ nwg-look] ++ (with kdePackages; [breeze breeze.qt5 breeze-icons]); #kdePackages.breeze-gtk kdePackages.breeze-icons kdePackages.breeze ];
+  home.packages = with pkgs; [ nwg-look ]; #++ (with kdePackages; [ breeze breeze.qt5 breeze-gtk breeze-icons ]);
 
   catppuccin.pointerCursor.enable = true;
 
@@ -19,8 +19,10 @@
       package = pkgs.tokyonight-gtk-theme;
     };
     iconTheme = {
-      name = "Tela-circle-Dark";
-      package = pkgs.tela-circle-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+      # name = "Tela-circle-Dark";
+      #   package = pkgs.tela-circle-icon-theme;
     };
     font = {
       name = "JetBrainsMono Nerd Font";

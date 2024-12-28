@@ -28,6 +28,7 @@
             inherit system;
             overlays = [
               #inputs.foo.overlays.default
+              # inputs.hyprpanel.overlay
               # (final: prev: {
               #   lib = lib // localLib;
               #   # lib = prev.lib.extend (lib: _: {
@@ -129,6 +130,7 @@
 
     # --- DE & Theming ---
     catppuccin.url = "github:catppuccin/nix";
+    hyprpanel = { url = "github:Jas-SinghFSU/HyprPanel"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     # --- WM ---
     hyprland.url = "github:hyprwm/Hyprland";

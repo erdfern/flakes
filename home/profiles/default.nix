@@ -9,6 +9,7 @@ let
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.nix-index-database.hmModules.nix-index
     inputs.nur.modules.homeManager.default
+    inputs.hyprpanel.homeManagerModules.hyprpanel
     (import ../. { inherit user config lib; })
     (import ../desktop/de)
   ];
