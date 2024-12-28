@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   wallpapers = map builtins.toString [
+    ../../../wall/strata.png
     ./whale.jpg
     ./astro.png
     ./wallcat.png
