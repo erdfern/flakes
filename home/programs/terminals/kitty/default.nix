@@ -6,7 +6,7 @@
 
       environment = { };
       keybindings = {
-        "ctrl+shift+tab+t" = "new_tab_with_cmd";
+        "alt+shift+t" = "new_tab_with_cmd";
       };
       font.name = "monospace";
       font.size = 16;
