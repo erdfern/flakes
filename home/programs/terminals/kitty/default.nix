@@ -5,7 +5,9 @@
       catppuccin.enable = true;
 
       environment = { };
-      keybindings = { };
+      keybindings = {
+        "ctrl+shift+tab+t" = "new_tab_with_cmd";
+      };
       font.name = "monospace";
       font.size = 16;
       settings = {
