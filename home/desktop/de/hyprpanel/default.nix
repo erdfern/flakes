@@ -6,7 +6,7 @@
 
     # Enable the module.
     # Default: false
-    enable = false;
+    enable = true;
 
     # Automatically restart HyprPanel with systemd.
     # Useful when updating your config so that you
