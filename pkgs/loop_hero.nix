@@ -29,15 +29,22 @@ writeShellApplication {
   text = # bash
     ''
       # steam_root="$(python3 "${get_steam_root_scripts}")"
+      # echo "$steam_root is steam root"
       # cd "$steam_root/steamapps/common/Loop Hero"
-      cd "~/.steam/steam/steamapps/common/Loop Hero"
+      cd "$HOME/.steam/steam/steamapps/common/Loop Hero"
 
       nixpkgs_flake="github:NixOS/nixpkgs"
       openldap_2_4_hash="3582135fe9589d0c823309cd38bebef37de369fd"
       openldap_2_4="$(nix build $nixpkgs_flake/$openldap_2_4_hash#openldap.out --no-link --print-out-paths)"
       openssl_1_1="$(export NIXPKGS_ALLOW_INSECURE=1; nix build nixpkgs#openssl_1_1.out --impure --no-link --print-out-paths)"
 
-      export LD_LIBRARY_PATH="$openssl_1_1/lib:$openldap_2_4/lib:$LD_LIBRARY_PATH"
+      echo "$openldap_2_4"
+      echo "$openssl_1_1"
+
+      # export LD_LIBRARY_PATH="$openssl_1_1/lib:$openldap_2_4/lib:$LD_LIBRARY_PATH"
+      export LD_LIBRARY_PATH="$openssl_1_1/lib:$openldap_2_4"
+
+      echo "$LD_LIBRARY_PATH"
 
       steam-run ./run.sh
     '';

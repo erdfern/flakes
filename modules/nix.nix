@@ -29,7 +29,7 @@
       # allowBroken = true;
       allowUnsupportedSystem = true;
       allowUnfree = true;
-      permittedInsecurePackages = [ ];
+      permittedInsecurePackages = [ "openssl-1.1.1w" ]; # loop heroo
     };
     overlays = [ self.overlays.default ]; # ++ [ inputs.lix-module.overlays.default];
   };
