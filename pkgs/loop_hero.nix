@@ -1,7 +1,7 @@
 { writeShellApplication, writeText, python3, steam-run }:
 
 let
-  app_id = 1282730;
+  app_id = builtins.toString 1282730;
   steam_path = "~/.steam/steam/steamapps/libraryfolders.vdf";
   get_steam_root_scripts =
     writeText "get_steam_root.py" # python
@@ -28,8 +28,9 @@ writeShellApplication {
   ];
   text = # bash
     ''
-      steam_root="$(python3 "${get_steam_root_scripts}")"
-      cd "$steam_root/steamapps/common/Loop Hero"
+      # steam_root="$(python3 "${get_steam_root_scripts}")"
+      # cd "$steam_root/steamapps/common/Loop Hero"
+      cd "~/.steam/steam/steamapps/common/Loop Hero"
 
       nixpkgs_flake="github:NixOS/nixpkgs"
       openldap_2_4_hash="3582135fe9589d0c823309cd38bebef37de369fd"
