@@ -38,7 +38,7 @@
       # name = "default";
       # path = "nix";
       isDefault = true;
-      # search.default = "DuckDuckGo";
+      search.default = "DuckDuckGo";
       # extensions = with config.nur.repos.rycee.firefox-addons; [
       #   tree-style-tab
       #   proton-pass
@@ -50,9 +50,10 @@
       #   privacy-badger
       #   dictionary-german
       # ];
-      # settings = {
+      settings = {
       # "browser.startup.homepage" = "file://${homepage}";
-      # };
+      "browser.startup.homepage" = "https://start.duckduckgo.com/";
+      };
       # userChrome ='''';
       # userContent = '''';
     };
