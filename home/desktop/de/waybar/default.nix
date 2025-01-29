@@ -1,6 +1,6 @@
 { pkgs, lib, nixosConfig, ... }:
 let
-  sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
+  # sharedScripts = import ../../../shared_scripts.nix { inherit pkgs; };
   isT14 = nixosConfig.networking.hostName == "kor-t14";
   style = builtins.readFile ./style.css;
 in
@@ -130,7 +130,7 @@ in
         scroll-step = 1;
         format = "{icon} {volume}% {node_name}";
         format-muted = "󰝟";
-        format-icons = [ "󰕾" "󰖀" "󰕿" ];
+        format-icons = [ "󰕿" "󰕾" "󰖀" ];
         on-click = "pamixer -t";
         tooltip = true;
         tooltip-format = "{node_name}@{volume}%";
