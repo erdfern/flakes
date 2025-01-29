@@ -31,7 +31,7 @@ in
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              backupFileExtension = "backup";
+              backupFileExtension = "backup_" + toString builtins.currentTime;
               # extraSpecialArgs = sillyLittleArgs;
             };
           }
