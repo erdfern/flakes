@@ -2,8 +2,8 @@
 {
   home = {
     packages = with pkgs; [
-      # devenv
-      surrealdb
+      devenv
+      # surrealdb
     ];
   };
 
