@@ -12,7 +12,7 @@ in
     {
       "$schema": "https://raw.githubusercontent.com/zigtools/zls/refs/heads/master/schema.json",
       "zig_exe_path": "${zig}/bin/zig",
-      "zig_lib_path": "${zig}/lib",
+      "zig_lib_path": "${zig}/lib"
     }
   '';
 }
