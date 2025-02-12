@@ -22,6 +22,12 @@
       flake = { overlays.default = selfPkgs.overlay; };
       # flake = { lib = lib // localLib; };
       perSystem = { config, pkgs, system, ... }:
+        let
+          zig = inputs.zig-overlay.packages.system.default;
+          zls = inputs.zls.packages.system.zls.overrideAttrs (old: {
+            nativeBuildInputs = [ zig ];
+          });
+        in
         {
           # NOTE: These overlays apply to the Nix shell only. See `modules/nix.nix` for system overlays.
           _module.args.pkgs = import inputs.nixpkgs {
@@ -39,7 +45,7 @@
           };
           devShells = {
             default = pkgs.mkShell {
-              nativeBuildInputs = with pkgs; [ git helix sbctl just ];
+              nativeBuildInputs = with pkgs; [ git helix sbctl just zig zls ];
               inputsFrom = [
                 config.flake-root.devShell
                 config.just-flake.outputs.devShell
@@ -113,6 +119,7 @@
   inputs = {
     # lix-module = { url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz"; inputs.nixpkgs.follows = "nixpkgs"; };
     zls = { url = "github:zigtools/zls"; };
+    zig-overlay = { url = "github:mitchellh/zig-overlay"; };
 
     # update single input: `nix flake lock --update-input <name>`
     # update all inputs: `nix flake update`
