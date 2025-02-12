@@ -8,12 +8,12 @@ in
 {
   # home.packages = [ inputs.zig-overlay.packages.${pkgs.system}.master pkgs.zls-master];
   home.packages = [ pkgs.zigpkgs.master zls ];
-  environment.etc."xdg/zls.json".text = ''
-{
-  "$schema": "https://raw.githubusercontent.com/zigtools/zls/refs/heads/master/schema.json",
-  "zig_exe_path": "${zig}/bin/zig",
-  "zig_lib_path": "${zig}/lib",
-}
+  home.file.".config/zls.json".text = ''
+    {
+      "$schema": "https://raw.githubusercontent.com/zigtools/zls/refs/heads/master/schema.json",
+      "zig_exe_path": "${zig}/bin/zig",
+      "zig_lib_path": "${zig}/lib",
+    }
   '';
 }
 
