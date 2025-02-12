@@ -31,7 +31,7 @@
       allowUnfree = true;
       # permittedInsecurePackages = [ "openssl-1.1.1w" ]; # loop heroo
     };
-    overlays = [ self.overlays.default ]; # ++ [ inputs.lix-module.overlays.default];
+    overlays = [ self.overlays.default ] ++ [ inputs.zig-overlay.overlays.default ]; # ++ [ inputs.lix-module.overlays.default];
   };
   nix.extraOptions = ''
     experimental-features = nix-command flakes auto-allocate-uids

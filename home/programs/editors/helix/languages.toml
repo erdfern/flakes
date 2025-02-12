@@ -120,18 +120,11 @@ formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-svelte"
 auto-format = true
 # /---/
 
-[language-server]
-jdtls = { command = "jdtls" }
-language-server = { command = "jdtls", args = [
-  "-data", "/home/<USER>/.cache/jdtls/workspace"
-  ]}
-
 [[language]]
-name = "java"
-scope = "source.java"
-injection-regex = "java"
-file-types = ["java"]
-roots = ["pom.xml", "build.gradle", ]
-indent = { tab-width = 4, unit = "    " }
-language-servers = [ "jdtls" ]
+name = "zig"
+language-servers = [ "zls" ]
+roots = [ "build.zig", "build.zig.zon" ]
+
+[language-server.zls]
+command = "zls"
 
