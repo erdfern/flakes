@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   # home.packages = [ inputs.zig-overlay.packages.${pkgs.system}.master pkgs.zls-master];
-  # home.packages = [];
+  home.packages = [ inputs.zls.packages.${pkgs.system}.zls ];
   # environment.etc."xdg/zls.json".text = let
   #   zig = inputs.zig.packages.${pkgs.system}.zig.master.bin;
   # in ''
