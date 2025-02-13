@@ -7,9 +7,13 @@
     enable = true;
     defaultApplications = lib.mkDefault {
       "application/pdf" = [ "org.pwmt.zathura.desktop" "firefox.desktop" ];
+      # browser
       "text/html" = "firefox.desktop";
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
+      # file browser
+      "inode/directory" = [ "nemo.desktop" ];
+      "application/x-gnome-saved-search" = [ "nemo.desktop" ];
     };
   };
 
