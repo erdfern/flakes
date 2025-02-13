@@ -1,5 +1,5 @@
 { pkgs, ... }:
 {
-  # home.packages = (with pkgs; [ nemo ]);
-  home.packages = (with pkgs; [ thunar ]);
+  home.packages = (with pkgs; [ nemo-with-extensions ]);
+  # home.packages = (with pkgs; [ xfce.thunar lxqt.pcmanfm-qt]);
 }
