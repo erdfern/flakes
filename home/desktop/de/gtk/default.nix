@@ -6,8 +6,6 @@
   # gtk settings viewer/editor
   home.packages = with pkgs; [ nwg-look ]; #++ (with kdePackages; [ breeze breeze.qt5 breeze-gtk breeze-icons ]);
 
-  catppuccin.pointerCursor.enable = true;
-
   qt.enable = true;
   qt.platformTheme.name = "kvantum";
   qt.style.name = "kvantum";
