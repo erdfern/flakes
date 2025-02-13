@@ -13,9 +13,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    gh-dash = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    gh-dash.enable = true;
   };
 }

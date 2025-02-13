@@ -12,6 +12,11 @@ let
   # '';
 in
 {
+  catppuccin.hyprlock = {
+    enable = true;
+    accent = "maroon";
+    flavor = "mocha";
+  };
   home.file.".config/.avatar".source = ./avatar.jpg;
   services.hypridle = {
     enable = true;
@@ -36,11 +41,6 @@ in
   };
   programs.hyprlock = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      accent = "maroon";
-      flavor = "mocha";
-    };
 
     # Gets placed at the bottom, so these declarations are forward referenced, which hyprlang doesn't seem to support
     # extraConfig = ''

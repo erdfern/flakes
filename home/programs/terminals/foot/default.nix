@@ -2,7 +2,6 @@
 {
   programs.foot = {
     enable = false;
-    catppuccin.enable = true;
 
     settings = {
       main = {

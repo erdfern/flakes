@@ -2,7 +2,6 @@
 {
   programs.fish = {
     enable = true;
-    catppuccin.enable = true;
 
     plugins = with pkgs.fishPlugins; [
       # { name = "bass"; src = bass.src; } # bash utility compat

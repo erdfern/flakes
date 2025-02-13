@@ -14,7 +14,6 @@
   programs = {
     cava = {
       enable = false;
-      #   catppuccin.enable = true;
     };
   };
   # home.file = {

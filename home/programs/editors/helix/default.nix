@@ -3,7 +3,6 @@
 {
   programs. helix = {
     enable = true;
-    catppuccin.enable = true;
     defaultEditor = true;
     # package = inputs.helix.packages.${pkgs.system}.default;
     settings = {

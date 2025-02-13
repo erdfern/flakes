@@ -1,9 +1,8 @@
 {
   # nixpkgs.overlays = [ (final: prev: { programs.zathura = prev.programs.zathura.overrideAttrs { catppuccin.enable = false; }; }) ];
+  catppuccin.zathura.flavor = "latte";
   programs.zathura = {
     enable = true;
-    catppuccin.enable = true;
-    catppuccin.flavor = "latte";
     extraConfig = ''
       # Zathura configuration file
       # See man `man zathurarc'

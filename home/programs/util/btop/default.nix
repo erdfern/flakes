@@ -3,7 +3,6 @@
   programs = {
     btop = {
       enable = true;
-      catppuccin.enable = true;
       # settings = {
       # color_theme = "nord";
       # };

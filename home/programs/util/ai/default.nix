@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  home = {
-    packages = with pkgs; [
-      aichat
-      chatgpt-cli
-    ];
-  };
+  # home = {
+  #   packages = with pkgs; [
+  #     aichat
+  #     chatgpt-cli
+  #   ];
+  # };
 }

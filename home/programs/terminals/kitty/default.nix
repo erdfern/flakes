@@ -2,7 +2,6 @@
   programs = {
     kitty = {
       enable = true;
-      catppuccin.enable = true;
 
       environment = { };
       keybindings = {

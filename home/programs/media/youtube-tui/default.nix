@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  home = {
-    packages = with pkgs; [
-      youtube-tui
-    ];
-  };
+  # home = {
+  #   packages = with pkgs; [
+  #     youtube-tui
+  #   ];
+  # };
 }

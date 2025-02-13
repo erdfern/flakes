@@ -2,7 +2,6 @@
 {
   programs.yazi = {
     enable = true;
-    catppuccin.enable = true; # theme
     enableFishIntegration = true;
     enableBashIntegration = true;
     enableNushellIntegration = true;

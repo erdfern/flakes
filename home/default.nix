@@ -1,5 +1,7 @@
 { user, lib, ... }:
 {
+  imports = [ ./catppuccin.nix ];
+
   programs.home-manager.enable = true;
 
   xdg.enable = true;

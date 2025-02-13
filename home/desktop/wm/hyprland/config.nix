@@ -23,7 +23,6 @@ let
 in
 {
   wayland.windowManager.hyprland = {
-    catppuccin.enable = true;
     sourceFirst = true;
     settings = {
       "$mod" = mod;

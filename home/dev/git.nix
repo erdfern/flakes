@@ -15,7 +15,6 @@
       delta = {
         # syntax highlighting pager
         enable = false;
-        catppuccin.enable = true;
         options.navigate = true;
       };
       difftastic = {
