@@ -197,7 +197,6 @@ in
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",dummy, exec, ${wpctl} -h"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
@@ -205,8 +204,8 @@ in
       bindle = [
         ",XF86MonBrightnessUp,   exec, ${light} -A 5%"
         ",XF86MonBrightnessDown, exec, ${light} -U 5%"
-        ",XF86AudioRaiseVolume,  exec, wpctl set-audio @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume,  exec, wpctl set-audio @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-audio @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,  exec, ${wpctl} set-audio @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
       bindm = [
