@@ -14,6 +14,7 @@ let
   '';
   hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
   pamixer = "${pkgs.pamixer}/bin/pamixer";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   light = "${pkgs.light}/bin/light";
@@ -141,6 +142,7 @@ in
           # "$mod SHIFT, G, fakefullscreen"
           # "$mod SHIFT, G, fullscreenstate TODO"
           "$mod, P, togglesplit"
+          "$mod, T, togglegroup"
 
           ",Super_L, exec, pkill fuzzel || ${fuzzel}"
           "$mod, Super_L,exec, pkill fuzzel || ${sharedScripts.fuzzel-powermenu}/bin/fuzzel-powermenu"
@@ -177,16 +179,12 @@ in
           (mvtows "right" "e+1")
         ] ++ (map (i: ws (toString i) (toString i)) arr) ++ (map (i: mvtows (toString i) (toString i)) arr);
 
-      bindle =
+      binde =
         let
           binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
           resizeactive = binding "${mod} CTRL" "resizeactive";
         in
         [
-          ",XF86MonBrightnessUp,   exec, ${light} -A 5%"
-          ",XF86MonBrightnessDown, exec, ${light} -U 5%"
-          ",XF86AudioRaiseVolume,  exec, ${pamixer} -i 5"
-          ",XF86AudioLowerVolume,  exec, ${pamixer} -d 5"
           (resizeactive "k" "0 -20")
           (resizeactive "j" "0 20")
           (resizeactive "l" "20 0")
@@ -194,15 +192,22 @@ in
         ];
 
       bindl = [
-        # ",XF86Display, exec, ${toggle_backlight}" # TODO use hyprctl dispatch dpms
         ",XF86Display, exec, ${toggle_dpms}/bin/toggle_dpms"
         ",XF86AudioPlay,    exec, ${playerctl} play-pause"
         ",XF86AudioStop,    exec, ${playerctl} pause"
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMute, exec, ${pamixer} -t"
-        ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+        ",dummy, exec, ${wpctl} -h"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ];
+
+      bindle = [
+        ",XF86MonBrightnessUp,   exec, ${light} -A 5%"
+        ",XF86MonBrightnessDown, exec, ${light} -U 5%"
+        ",XF86AudioRaiseVolume,  exec, wpctl set-audio @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,  exec, wpctl set-audio @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
       bindm = [
