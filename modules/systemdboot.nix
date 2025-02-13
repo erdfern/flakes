@@ -1,5 +1,6 @@
 { ... }:
 {
+  catppuccin.plymouth.enable = true;
   boot = {
     # tmp
     supportedFilesystems = [ "ntfs" ];
@@ -8,7 +9,6 @@
     consoleLogLevel = 0;
     plymouth = {
       enable = true;
-      catppuccin.enable = true;
     };
     bootspec.enable = true;
     loader = {

@@ -10,7 +10,6 @@ in
   services.network-manager-applet.enable = true;
   programs.waybar = {
     enable = true;
-    catppuccin.enable = true;
     systemd = {
       enable = false; # disable it, autostart it in hyprland conf
       # target = "graphical-session.target";

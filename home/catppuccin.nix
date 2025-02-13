@@ -1,6 +1,9 @@
 { ... }:
 {
-  catppuccin.enable = true; # enables all supported hm options
-  catppuccin.flavor = "mocha";
-  catppuccin.accent = "maroon";
+  catppuccin = {
+    enable = true; # enables all supported hm options
+    cursors.enable = true;
+    flavor = "mocha";
+    accent = "maroon";
+  };
 }
