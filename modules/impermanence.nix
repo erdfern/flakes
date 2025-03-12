@@ -35,8 +35,10 @@
           ".steam"
           ".gradle"
           ".cargo"
+          ".npm"
+          ".npm-global"
         ];
-        files = [ ".nvidia-settings-rc" ];
+        files = [ ".nvidia-settings-rc" ".npmrc"];
       };
     };
   };
