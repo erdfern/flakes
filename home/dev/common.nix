@@ -3,6 +3,7 @@
   home = {
     packages = with pkgs; [
       devenv
+      nodePackages."@anthropic-ai/claude-code"
       # jetbrains.rider
       # surrealdb
     ];
