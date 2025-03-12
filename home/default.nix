@@ -27,6 +27,9 @@
       TERMINAL = "kitty";
       BROWSER = "firefox";
     };
+    sessionPath = [
+      "$HOME/.npm-global/bin"
+    ];
   };
 
   home.stateVersion = "24.11";
