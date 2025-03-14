@@ -7,7 +7,7 @@ let
 in
 {
   # home.packages = [ inputs.zig-overlay.packages.${pkgs.system}.master pkgs.zls-master];
-  # home.packages = [ pkgs.zigpkgs.master zls];
+  home.packages = [ pkgs.zigpkgs.master zls];
   home.file.".config/zls.json".text = ''
     {
       "$schema": "https://raw.githubusercontent.com/zigtools/zls/refs/heads/master/schema.json",
