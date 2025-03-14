@@ -14,6 +14,9 @@ formatter = { command = "nixpkgs-fmt" }
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
 [language-server.texlab.config.texlab.build]
 onSave = true
 

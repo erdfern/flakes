@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 
 {
-  programs. helix = {
+  programs.helix = {
     enable = true;
     defaultEditor = true;
     # package = inputs.helix.packages.${pkgs.system}.default;
