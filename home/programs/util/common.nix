@@ -8,6 +8,7 @@
       jq
       tldr
       rclone
+      glow
       # obsidian
       # logseq
       # poppler
