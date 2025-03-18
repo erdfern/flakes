@@ -2,12 +2,12 @@
 let
   zig = pkgs.zigpkgs.master;
   zls = inputs.zls.packages.${pkgs.system}.zls.overrideAttrs (prev: {
-    nativeBuildInputs = [ pkgs.zigpkgs.master ];
+    nativeBuildInputs = [ zig ];
   });
 in
 {
   # home.packages = [ inputs.zig-overlay.packages.${pkgs.system}.master pkgs.zls-master];
-  home.packages = [ pkgs.zigpkgs.master];
+  home.packages = [ zig zls];
   home.file.".config/zls.json".text = ''
     {
       "$schema": "https://raw.githubusercontent.com/zigtools/zls/refs/heads/master/schema.json",
