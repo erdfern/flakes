@@ -42,7 +42,7 @@
         lsp = {
           enable = true;
           display-messages = true;
-          display-inlay-hints = true; # maybe buggy/laggy as per docs
+          display-inlay-hints = false; # maybe buggy/laggy as per docs
         };
       };
     };
