@@ -215,11 +215,11 @@ in
 
       windowrule =
         let
-          f = regex: "float, ^(${regex})$";
+          f = regex: "float, class:^(${regex})$";
         in
         [
           # #`hyprctl clients` get class、title...
-          "suppressevent maximize, class:.*"
+          # "suppressevent maximize, class:.*"
           (f "Picture-inPicture")
           (f "imv")
           (f "mpv")
