@@ -18,13 +18,14 @@
 
   # services.udev.packages = [ pkgs.yubikey-personalization ];
 
-  # environment.systemPackages = with pkgs; [
-  #   ccid # nitrokey
-  #   opensc
-  #   libfido2
-  #   pam_u2f
-  #   yubico-pam
-  #   yubikey-manager
-  #   yubikey-personalization
-  # ];
+  environment.systemPackages = with pkgs; [
+    nitrokey-udev-rules
+    # ccid # nitrokey
+    # opensc
+    # libfido2
+    # pam_u2f
+    # yubico-pam
+    # yubikey-manager
+    # yubikey-personalization
+  ];
 }
