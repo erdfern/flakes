@@ -117,10 +117,14 @@ formatter = { command = 'prettier', args = ["--parser", "css"] }
 
 [[language]]
 name = "svelte"
-language-servers = [ "svelteserver", "tailwindcss-ls" ]
-roots = ["package.json"]
+language-servers = [ {name = "tailwindcss-ls", except-features = ["hover"]}, "svelteserver"]
+roots = ["svelte.config.js", "svelte.config.ts", "package.json"]
 formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-svelte", "--parser", "svelte"] }
 auto-format = true
+# kind of a hack, since single line will only work in <script>, and block will only work in template
+# TODO remove when support for syntax context get's merged
+comment-tokens = ["//"]
+block-comment-tokens = {start = "<!--", end = "--->"}
 # /---/
 
 [[language]]
