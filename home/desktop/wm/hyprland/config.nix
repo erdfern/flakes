@@ -15,8 +15,6 @@ let
   hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
-  pamixer = "${pkgs.pamixer}/bin/pamixer";
-  pactl = "${pkgs.pulseaudio}/bin/pactl";
   light = "${pkgs.light}/bin/light";
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   mod = "ALT";
@@ -35,6 +33,7 @@ in
 
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "GRIMBLAST_HIDE_CURSOR,0"
         # "XCURSOR_SIZE,24"
         # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
         # "HYPRCURSOR_SIZE,24"
@@ -42,8 +41,8 @@ in
         # "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
 
-      debug.disable_logs = false;
-      debug.enable_stdout_logs = true;
+      debug.disable_logs = true;
+      debug.enable_stdout_logs = false;
 
       monitor = [
         "Unknown-1, disable"
@@ -101,9 +100,18 @@ in
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
-          drag_lock = true;
+          drag_lock = false;
+        };
+        touchdevice = {
+          enabled = true;
+          # output = 
+          # transform = -1;
         };
       };
+
+      # device = {
+      #   "synps/2-synaptics-touchpad" = {};
+      # };
 
       gestures = {
         # workspace_swipe = true;
@@ -149,8 +157,9 @@ in
           "$mod SHIFT, Return, exec, $TERMINAL --class='termfloat'"
           # "$mod SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
           "$mod SHIFT, O, exec, ${toggle_waybar}/bin/toggle_waybar"
-          "$mod, bracketleft, exec, grimblast --notify --cursor copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
-          "$mod, bracketright, exec, grimblast --notify --cursor copy area"
+          "$mod, bracketleft, exec, grimblast --notify copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
+          "$mod, bracketright, exec, grimblast --notify copy area"
+          "$mod, Print, exec, grimblast --notify copy screen"
 
 
           # minimize using special workspace
