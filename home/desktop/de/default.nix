@@ -1,4 +1,4 @@
 { ... }:
 {
-  imports = [ ./gtk ./mako ./waybar ./hyprpanel ];
+  imports = [ ./gtk ./mako ./waybar ];
 }
