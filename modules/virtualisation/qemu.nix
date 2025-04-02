@@ -4,6 +4,7 @@
   environment = {
     systemPackages = with pkgs; [
       virt-manager
+      questfs-tools
       swtpm # TMP emulation
     ];
   };
