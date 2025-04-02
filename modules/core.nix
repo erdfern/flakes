@@ -116,6 +116,7 @@
       # onefetch
       jq
       nvd
+      guestfs-tools
     ];
   };
 
