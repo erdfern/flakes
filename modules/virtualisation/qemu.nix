@@ -3,11 +3,10 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      virt-manager
-      questfs-tools
       swtpm # TMP emulation
     ];
   };
+  programs.virt-manager.enable = true;
   virtualisation = {
     libvirtd = {
       enable = true;
