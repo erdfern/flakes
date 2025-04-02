@@ -9,6 +9,7 @@
       tldr
       rclone
       glow
+      zellij
       # obsidian
       # logseq
       # poppler
